@@ -1,0 +1,746 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    color: #bbb;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 1) 100%), url('/images/taustakuva1.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+p {
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 300,
+  'GRAD' 100,
+  'opsz' 4
+}
+
+.call {
+    position: relative;
+    top: 8px;
+    left: 5px;
+    color: gold;
+}
+
+.phone-contact {
+    position: relative;
+    bottom: 5px;
+    right: 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    background-color: black;
+    color: white;
+    max-width: 1366px;
+    margin: 5px auto 0;
+    align-items: center;
+}
+
+.navbar img {
+    margin-left: 50px;
+    width: 120px;
+    height: auto;
+}
+
+.navbar nav ul {
+    display: flex;
+    flex-direction: row;
+    margin-right: 50px;
+} 
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    list-style-type: none;
+    letter-spacing: 1.5px;
+    margin-left: 20px;
+    opacity: .9;
+}
+
+nav ul li {
+    list-style-type: none;
+}
+
+nav ul li a:hover {
+    opacity: 1;
+    cursor: pointer;
+    transition: 1s;
+    color: lightblue;
+}
+
+li {
+    list-style-type: none;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+
+/*navbar tehoste*/
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 1s;
+    transform: translateY(-30%);
+}
+
+.show {
+    opacity: 1;
+    filter:blur(0);
+    transform: translateY(5px);
+}
+
+/*yläosa tehoste*/
+
+.hidden-upper {
+    opacity: 0;
+    filter: blur(3px);
+    transition: all 2s;
+    transform: translateY();
+}
+
+.show-upper {
+    opacity: 1;
+    filter:blur(0);
+    transform: translateY();
+}
+
+/*keskiosa tehoste*/
+.hidden-middle {
+    opacity: 0;
+    filter: blur(3px);
+    transition: all 4s;
+    transform: translateX();
+}
+
+.show-middle {
+    opacity: 1;
+    filter:blur(0);
+    transform: translateY(0);
+}
+
+/*alaosa tehoste*/
+/*vasemmalta*/
+.hidden-bottom-left {
+    opacity: 0;
+    filter: blur(1px);
+    transition: all 1s;
+    transform: translateX(-50%);
+}
+
+.show-from-left {
+    opacity: 1;
+    filter:blur(0);
+    transform: translateX(0);
+}
+/*Oikealta*/
+.hidden-bottom-right {
+    opacity: 0;
+    filter: blur(1px);
+    transition: all 1s;
+    transform: translateX(50%);
+}
+
+.show-from-right {
+    opacity: 1;
+    filter:blur(0);
+    transform: translateX(0);
+}
+
+/*Yläosan kuva-asettelu*/
+.upper-section {
+    margin-top: 10px;
+}
+
+.main-image img {
+    max-width: 500px;
+    border-radius: 10px;
+    width: 95%;
+    max-width: 1700px;
+    height: 100%;
+    margin: auto;
+    display: block;
+}
+h1 {
+    font-weight: 900;
+    color: white;
+    text-align: center;
+}
+
+.middle-section {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px 0 50px;
+    letter-spacing: 2px;
+}
+
+.middle-section h1 {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    opacity: .9;
+}
+
+.middle-section p {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    color: white;
+    padding: 30px;
+    font-size: 16px;
+    opacity: .9;
+}
+
+.center-btn{
+    display: flex;
+    justify-content: center;
+}
+
+.contact-btn {
+    font-size: 18px;
+    padding: 20px 30px;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    width: max-content;
+    background: #009ee3;
+    opacity: .5;
+    transition-property: transform, opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+}
+
+.contact-btn:hover {
+    opacity: 1;
+    cursor: pointer;
+    color: black;
+    transform: scale(1.1);
+    transition: transform 1s ease;
+    opacity: 1;
+}
+
+.contact-btn:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    max-width: 1300px;
+    row-gap: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 50px 10px 0;
+}
+
+#tietoa-meista {
+    scroll-margin-top: 100px;
+}
+
+#lvi-palvelut {
+    scroll-margin-top: 100px;
+}
+
+#arvot {
+    scroll-margin-top: 100px;
+}
+
+.box img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.boxText {
+    color: white;
+    padding: 50px;
+    align-items: center;
+}
+.boxText h1 {
+    text-align: start;
+    padding: 20px;
+    font-size: 20px;
+    opacity: .9;
+}
+.boxText p {
+    font-size: 16px;
+    line-height: 1.7;
+    letter-spacing: 1.2px;
+    padding: 0 20px;
+    opacity: .9;
+}
+
+.boxText li {
+    font-size: 16px;
+}
+
+/*lomake*/
+.form-header{
+    border-top: solid .5px gray;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 100px;
+}
+.form-section {
+    width: 300px;
+    margin: 20px auto 100px;
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 500px;
+}
+
+.form {
+    padding: 15px;
+    border-radius: 5px;
+    width: 90%;
+    margin: auto;
+}
+label {
+    color: white;
+    font-size: 13px;
+    opacity: .9;
+}
+input {
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    margin: 10px 0 0;
+    height: 30px;
+    opacity: .8;
+}
+textarea {
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    margin: 15px 0;
+    height: 75px;
+    opacity: .8;
+}
+
+.contact-btn-form {
+    padding: 9px 40px;
+    background-color: #009ee3;
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    width: 100%;
+}
+
+/*Footer alkaa*/
+footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 250px;
+}
+footer li {
+    color: white;
+    padding-bottom: 10px;
+}
+
+.laskutustiedot a {
+    color: white;
+}
+
+.wrapper-footer {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+    margin: 75px auto 100px;
+    text-align: center;
+}
+.footer {
+    background-color: black;
+    border-top: solid 1px darkgray;
+    padding: 1px;
+}
+.contact-header {
+    color: white;
+    text-align: start;
+    text-transform: uppercase;
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+}
+
+/*Galleria osuus*/
+.galleria-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px auto;
+    width: 90%;
+    gap: 25px;
+}
+
+.galleria-img img {
+    max-width: 300px;
+    width: 100%;
+    margin-bottom: 50px;
+
+}
+
+@media (min-width: 576px) {
+    .middle-section h1 {
+        font-size: 5vw;
+    }
+
+    .middle-section p {
+        font-size: 1.7vw;
+    }
+
+    .boxText {
+        padding: 25px;
+    }
+
+    .boxText h1 {
+        font-size: 4vw;
+    }
+    .boxText p {
+        font-size: 1.3vw;
+    }
+    
+    .boxText li {
+        font-size: 1.3vw;
+    }
+
+    .wrapper {
+        row-gap: 25px;
+        column-gap: 25px;
+        margin: 25px;
+    }
+
+    nav ul li a {
+        font-size: 1.4vw;
+        margin-left: 15px;
+    }
+}
+
+@media (min-width: 992px) {
+    .middle-section h1 {
+        font-size:4vw;
+    }
+
+    .middle-section p {
+        font-size: 1.3vw;
+    }
+
+    .boxText h1 {
+        font-size: 3vw;
+    }
+    .boxText p {
+        font-size: 1.3vw;
+    }
+    
+    .boxText li {
+        font-size: 1.3vw;
+    }
+
+    .wrapper {
+        row-gap: 100px;
+        column-gap: 50px;
+    }
+
+    nav ul li a {
+        font-size: 15px;
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .middle-section h1 {
+        font-size: 35px;
+        padding-top: 5px;
+    }
+
+    .middle-section p {
+        font-size: 15px;
+        padding: 35px 0;
+        line-height: 2;
+    }
+
+    .boxText h1 {
+        font-size: 40px;
+    }
+    .boxText p {
+        font-size: 16px;
+        line-height: 2;
+    }
+    
+    .boxText li {
+        font-size: 16px;
+        line-height: 2;
+    }
+
+    .wrapper {
+        margin: auto;
+    }
+}
+
+@media (min-width: 651px) {
+    .hamburger-icon {
+        display: none;
+    }
+
+    .tips_and_updates {
+        display: none;
+    }
+
+    .plumbing {
+        display: none;
+    }
+
+    .account_balance {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .hamburger-icon {
+        display: inline-block;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-right: 25px;
+        z-index: 1001;
+    }
+
+    .hamburger-icon span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: #fff;
+        transition: transform 0.3s ease;
+    }
+
+    .hamburger-icon span:nth-child(1) {
+        top: 0;
+    }
+    
+    .hamburger-icon span:nth-child(2) {
+        top: 8px;
+    }
+    
+    .hamburger-icon span:nth-child(3) {
+        top: 16px;
+    }
+    
+    .hamburger-icon.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger-icon.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger-icon.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navbar img {
+        z-index: 1001;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: black;
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+        transition: 0.5s ease;
+        transform: translateY(-120%);
+        z-index: 1000;
+        padding-top: 50px;
+    }
+
+    .nav-link {
+        margin: 10px 0;
+    }
+
+    .nav-menu.active {
+        transform: translateY(0%);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-menu.active a {
+        opacity: 0;
+        animation-name: fadeIn;
+        animation-duration: 0.5s;
+        animation-delay: 0.4s;
+        animation-fill-mode: forwards;
+    }
+    .nav-menu:not(.active) a {
+        opacity: 0;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: .9;
+        }
+    }
+
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1px;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .tips_and_updates {
+        color: white;
+        display: block;
+        text-align: center;
+        padding-left: 13px;
+        font-size: 50px;
+        opacity: .7;
+        color: gold;
+        position: relative;
+        top: 25px;
+        background-color: black;
+        border-radius: 33px;
+    }
+
+    .plumbing {
+        color: white;
+        display: block;
+        text-align: center;
+        padding: 0 5px 0 7px;
+        font-size: 50px;
+        opacity: .7;
+        color: gold;
+        position: relative;
+        top: 25px;
+        background-color: black;
+    }
+
+    .account_balance {
+        color: white;
+        display: block;
+        text-align: center;
+        padding: 0 10px 0 13px;
+        font-size: 50px;
+        opacity: .7;
+        color: gold;
+        position: relative;
+        top: 25px;
+        background-color: black;
+    }
+
+    .box {
+        padding: 25px;
+    }
+
+    .boxImage {
+        display: none;
+    }
+
+    .main-image img {
+        width: 100%;
+        border-radius: 0;
+        height: 110px;
+        object-fit: fill;
+    }
+
+    .navbar img {
+        width: 100px;
+        margin-left: 20px;
+    }v
+
+    .middle-section h1 {
+        font-size: 5vw;
+        padding: 10px 25px;
+    }
+
+    .middle-section p {
+        font-size: 2.5vw;
+        padding: 50px;
+        z-index: 1;
+    }
+
+    .boxText {
+        padding: 45px 20px 50px;
+        width: 90%;
+        margin: auto;
+        border: .5px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+    }
+
+    .boxText h1 {
+        font-size: 5vw;
+        padding-left: 4px;
+    }
+    .boxText p {
+        font-size: 3vw;
+        line-height: 2;
+        padding: 5px;
+    }
+    
+    .boxText li {
+        font-size: 2.5vw;
+    }
+
+    .contact-btn {
+        font-size: 4vw;
+        padding: 15px 30px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .middle-section h1 {
+        font-size: 5vw;
+        padding: 10px 25px;
+        line-height: 1.5;
+    }
+
+    .middle-section p {
+        font-size: 2.7vw;
+        padding: 35px 50px 40px;
+        line-height: 2.3;
+        text-align: center;
+    }
+
+}
+
+
+
+
+
