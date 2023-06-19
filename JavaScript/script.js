@@ -15,16 +15,27 @@ window.addEventListener('scroll', function() {
     var scrollPosition = window.scrollY || document.documentElement.scrollTop;
   
     if (scrollPosition > (0.5 * document.documentElement.clientHeight)) {
-      document.getElementById('toFrontPage').classList.add('show'); 
+      document.getElementById('toPageUp').classList.add('show'); 
     } else {
-      document.getElementById('toFrontPage').classList.remove('show');
+      document.getElementById('toPageUp').classList.remove('show');
     }
   
     var footerPosition = document.getElementById('footer').getBoundingClientRect().top;
     if (footerPosition <= document.documentElement.clientHeight) {
-      document.getElementById('toFrontPage').classList.add('hide');
+      document.getElementById('toPageUp').classList.add('hide');
     } else {
-        this.document.getElementById('toFrontPage').classList.remove('hide');
+        this.document.getElementById('toPageUp').classList.remove('hide');
     }
   });
+
+var toPageUpBtn = document.getElementById('toPageUp');
+
+toPageUpBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    window.scrollTo ({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
   
