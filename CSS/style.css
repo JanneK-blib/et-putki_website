@@ -255,7 +255,7 @@ input {
     width: 100%;
     border-radius: 3px;
     border: none;
-    margin: 10px 0 0;
+    margin: 5px 0 0;
     height: 30px;
     opacity: .8;
 }
@@ -263,7 +263,7 @@ textarea {
     width: 100%;
     border-radius: 3px;
     border: none;
-    margin: 15px 0;
+    margin: 5px 0;
     height: 75px;
     opacity: .8;
 }
@@ -669,6 +669,23 @@ footer li {
     .wrapper {
         padding-bottom: 50px;
         margin-bottom: 0;
+    }
+
+    .form-section {
+        background: rgba(25, 24, 37, 0.7);
+        border-radius: 10px;
+        padding-top: 10px;
+    }
+
+    .form-header {
+        font-size: 20px;
+        padding: 50px 25px 20px;
+        font-weight: 300;
+    }
+
+    .form label {
+        font-size: 14px;
+        font-weight: 300;
     }
 }
 
