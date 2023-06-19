@@ -1,18 +1,68 @@
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 900,
+  'GRAD' 0,
+  'opsz' 10
+}
+
 .galleria-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 50px auto;
     width: 90%;
-    gap: 25px;
 }
 
 .galleria-img img {
     max-width: 300px;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
+@keyframes floatEffect {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
 #toFrontPage {
-    
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #009ee3;
+    text-decoration: none;
+    border-radius: 33px;
+    font-size: 25px;
+    font-weight: 900;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#toFrontPage.show {
+    opacity: 1;
+    animation-name: floatEffect;
+}
+
+#toFrontPage.hide {
+    opacity: 0;
+    transition-duration: 0.2s;
 }
