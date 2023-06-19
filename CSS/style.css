@@ -447,6 +447,10 @@ footer li {
     .account_balance {
         display: none;
     }
+
+    .wrapper {
+        margin-bottom: 50px;
+    }
 }
 
 @media (max-width: 650px) {
@@ -522,6 +526,7 @@ footer li {
         transform: translateY(0%);
         display: flex;
         flex-direction: column;
+        padding-top: 100px;
     }
 
     .nav-menu.active a {
@@ -530,6 +535,8 @@ footer li {
         animation-duration: 0.5s;
         animation-delay: 0.4s;
         animation-fill-mode: forwards;
+        font-size: 14px;
+        font-weight: 300;
     }
     .nav-menu:not(.active) a {
         opacity: 0;
@@ -613,12 +620,15 @@ footer li {
     }v
 
     .middle-section h1 {
-        font-size: 5vw;
+        font-size: 24px;
+        font-weight: 300;
         padding: 10px 25px;
     }
 
     .middle-section p {
-        font-size: 2.5vw;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 2;
         padding: 50px;
         z-index: 1;
     }
@@ -632,38 +642,45 @@ footer li {
     }
 
     .boxText h1 {
-        font-size: 5vw;
+        font-size: 24px;
+        font-weight: 300;
         padding-left: 4px;
     }
     .boxText p {
-        font-size: 3vw;
+        font-size: 14px;
+        font-weight: 300;
         line-height: 2;
         padding: 5px;
     }
     
     .boxText li {
-        font-size: 2.5vw;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 2;
     }
 
     .contact-btn {
-        font-size: 4vw;
+        font-size: 16px;
+        font-weight: 500;
         padding: 15px 30px;
         margin-top: 20px;
+    }
+
+    .wrapper {
+        padding-bottom: 50px;
+        margin-bottom: 0;
     }
 }
 
 @media (max-width: 500px) {
     .middle-section h1 {
-        font-size: 5vw;
-        padding: 10px 25px;
-        line-height: 1.5;
+        font-size: 24px;
+        padding: 15px 20px 0;
+        line-height: 1.3;
     }
 
     .middle-section p {
-        font-size: 2.7vw;
-        padding: 35px 50px 40px;
-        line-height: 2.3;
-        text-align: center;
+        line-height: 1.7;
     }
 
 }
