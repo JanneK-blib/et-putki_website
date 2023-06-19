@@ -1,0 +1,18 @@
+.galleria-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px auto;
+    width: 90%;
+    gap: 25px;
+}
+
+.galleria-img img {
+    max-width: 300px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#toFrontPage {
+    
+}
