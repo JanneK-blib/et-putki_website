@@ -741,9 +741,9 @@ footer li {
     }v
 
     .middle-section h1 {
-        font-size: 24px;
+        font-size: 2411px;
         font-weight: 300;
-        padding: 10px 25px;
+        padding: 10px 50px;
         z-index: 1;
     }
 
@@ -790,7 +790,7 @@ footer li {
 
     .wrapper {
         padding-bottom: 50px;
-        margin-bottom: 0;
+        margin-bottom: 50px;
         border-radius: 10px;
     }
 
