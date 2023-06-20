@@ -50,7 +50,7 @@ html {
     border-radius: 33px;
     font-size: 25px;
     font-weight: 900;
-    z-index: 9999;
+    z-index: 9998;
     opacity: 0;
     transition: opacity 0.5s ease-in;
     display: flex;
@@ -71,4 +71,8 @@ html {
 #toPageUp.hide {
     opacity: 0;
     transition-duration: 0.2s;
+}
+
+#footer {
+    z-index: 9999;
 }
