@@ -103,7 +103,7 @@ li {
 
 .main-image img {
     max-width: 500px;
-    border-radius: 10px;
+    border-radius: 3px;
     width: 95%;
     max-width: 1700px;
     height: 100%;
@@ -173,18 +173,6 @@ h1 {
     transform: scale(1);
 }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-    margin: 100px auto;
-    max-width: 1300px;
-    row-gap: 100px;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 50px 10px 0;
-}
-
 #tietoa-meista {
     scroll-margin-top: 100px;
 }
@@ -197,11 +185,6 @@ h1 {
     scroll-margin-top: 100px;
 }
 
-.box img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-}
 
 .boxText {
     color: white;
@@ -220,10 +203,6 @@ h1 {
     letter-spacing: 1.2px;
     padding: 0 20px;
     opacity: .9;
-}
-
-.boxText li {
-    font-size: 16px;
 }
 
 /*lomake*/
@@ -360,67 +339,6 @@ footer li {
     }
 }
 
-@media (min-width: 992px) {
-    .middle-section h1 {
-        font-size:4vw;
-    }
-
-    .middle-section p {
-        font-size: 1.3vw;
-    }
-
-    .boxText h1 {
-        font-size: 3vw;
-    }
-    .boxText p {
-        font-size: 1.3vw;
-    }
-    
-    .boxText li {
-        font-size: 1.3vw;
-    }
-
-    .wrapper {
-        row-gap: 100px;
-        column-gap: 50px;
-    }
-
-    nav ul li a {
-        font-size: 15px;
-        margin-left: 20px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .middle-section h1 {
-        font-size: 35px;
-        padding-top: 5px;
-    }
-
-    .middle-section p {
-        font-size: 15px;
-        padding: 35px 0;
-        line-height: 2;
-    }
-
-    .boxText h1 {
-        font-size: 40px;
-    }
-    .boxText p {
-        font-size: 16px;
-        line-height: 2;
-    }
-    
-    .boxText li {
-        font-size: 16px;
-        line-height: 2;
-    }
-
-    .wrapper {
-        margin: auto;
-    }
-}
-
 @media (min-width: 651px) {
     .hamburger-icon {
         display: none;
@@ -438,14 +356,162 @@ footer li {
         display: none;
     }
 
+    .intro {
+        display: none;
+    }
+
+    .middle-section h1 {
+        font-size: 24px;
+        padding: 0 50px;
+    }
+
+    .middle-section p {
+        font-size: 12px;
+        padding: 50px;
+        line-height: 2;
+    }
+
     .wrapper {
-        margin-bottom: 50px;
-        padding-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        padding: 50px 25px;
         border-radius: 10px;
     }
 
-    .intro {
-        display: none;
+    .column-reverse {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+
+    .box img {
+        display: flex;
+        height: 100%;
+        width: 70%;
+        margin: auto;
+    }
+
+    .boxText {
+        width: 70%;
+        margin: auto;
+    }
+
+    .boxText h1 {
+        font-size: 20px;
+    }
+
+    .boxText p {
+        line-height: 2;
+        font-size: 13px;
+        padding: 25px;
+    }
+}
+
+@media (min-width: 992px) {
+    .middle-section h1 {
+        font-size:4vw;
+    }
+
+    .middle-section p {
+        font-size: 1.3vw;
+    }
+
+    .boxText {
+        flex: 1;
+    }
+
+    .boxImage {
+        flex: 1;
+    }
+
+    .column-reverse {
+        flex-direction: column;
+    }
+
+    .box img {
+        width: 500px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .boxText h1 {
+        font-size: 30px;
+    }
+    .boxText p {
+        font-size: 14px;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 100px auto;
+        max-width: 1300px;
+        gap: 75px;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 50px 10px 100px;
+    }
+
+    .box-row {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        margin: auto;
+        align-items: center;
+        gap: 75px;
+    }
+
+    
+    .boxImage {
+        flex: 1;
+    }
+
+    .boxText {
+        flex: 2;
+    }
+    
+
+    nav ul li a {
+        font-size: 15px;
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .middle-section h1 {
+        margin-top: 25px;
+        font-size: 35px;
+        padding-top: 5px;
+    }
+
+    .middle-section p {
+        font-size: 14px;
+        padding: 50px 0 75px;
+        line-height: 2;
+    }
+
+    .boxText h1 {
+        font-size: 35px;
+    }
+    .boxText p {
+        font-size: 14px;
+        line-height: 2;
+    }
+    
+    .boxText li {
+        font-size: 16px;
+        line-height: 2;
+    }
+
+    .wrapper {
+        margin: auto;
+    }
+
+    .contact-btn {
+        margin-bottom: 100px;
     }
 }
 
@@ -601,46 +667,56 @@ footer li {
         row-gap: 1px;
         margin-top: 0;
         padding-top: 0;
+        background-color: rgba(0, 0, 0, 0.8);
     }
 
-    .tips_and_updates {
+    .material-symbols-outlined.tips_and_updates {
         color: white;
         display: block;
         text-align: center;
-        padding-left: 13px;
+        width: 100px;
+        margin: auto;
+        padding-left: 10px !important;
         font-size: 50px;
         opacity: .8;
         color: gold;
         position: relative;
         top: 25px;
-        background-color: black;
-        border-radius: 33px;
-    }
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 33px !important;
+      }
+      
 
-    .plumbing {
+      .material-symbols-outlined.plumbing {
         color: white;
         display: block;
         text-align: center;
-        padding: 0 5px 0 7px;
+        width: 100px;
+        margin: auto;
+        padding-left: 3px !important;
         font-size: 50px;
         opacity: .8;
         color: gold;
         position: relative;
         top: 25px;
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 33px !important;
     }
 
     .account_balance {
         color: white;
         display: block;
         text-align: center;
-        padding: 0 10px 0 13px;
+        width: 100px;
+        margin: auto;
+        padding-left: 2px !important;
         font-size: 50px;
         opacity: .8;
         color: gold;
         position: relative;
         top: 25px;
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 33px !important;
     }
 
     .box {
@@ -715,6 +791,7 @@ footer li {
     .wrapper {
         padding-bottom: 50px;
         margin-bottom: 0;
+        border-radius: 10px;
     }
 
     .form-section {
