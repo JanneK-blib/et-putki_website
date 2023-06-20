@@ -24,8 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
       setTimeout(() => {
         localStorage.removeItem('isSplashScreenShown');
-      }, 0);
-      // 3600000
+      }, 1800000);
     } else {
       intro.style.display = 'none';
     }
