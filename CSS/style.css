@@ -452,13 +452,12 @@ footer li {
 @media (max-width: 650px) {
     .hamburger-icon {
         display: inline-block;
-        width: 30px;
-        height: 20px;
+        width: 25px;
+        height: 15px;
         position: relative;
         cursor: pointer;
-        margin-top: 5px;
-        margin-right: 25px;
-        z-index: 1001;
+        margin-right: 30px;
+        z-index: 3;
     }
 
     .hamburger-icon span {
@@ -469,6 +468,15 @@ footer li {
         background-color: #fff;
         transition: transform 0.3s ease;
     }
+
+    @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
 
     .hamburger-icon span:nth-child(1) {
         top: 0;
@@ -495,7 +503,7 @@ footer li {
     }
 
     .navbar img {
-        z-index: 1001;
+        z-index: 0;
     }
 
     .nav-menu {
@@ -510,7 +518,7 @@ footer li {
         text-align: center;
         transition: 0.5s ease;
         transform: translateY(-120%);
-        z-index: 1000;
+        z-index: 0;
         padding-top: 50px;
     }
 
@@ -523,6 +531,7 @@ footer li {
         display: flex;
         flex-direction: column;
         padding-top: 100px;
+        z-index: 2;
     }
 
     .nav-menu.active a {
@@ -533,6 +542,7 @@ footer li {
         animation-fill-mode: forwards;
         font-size: 14px;
         font-weight: 300;
+        z-index: 3;
     }
     .nav-menu:not(.active) a {
         opacity: 0;
@@ -549,7 +559,7 @@ footer li {
 
     .intro {
         position: fixed;
-        z-index: 1;
+        z-index: 4;
         left: 0;
         top: 0;
         width: 100%;
@@ -576,13 +586,13 @@ footer li {
     .intro-logo.active {
         bottom: 0;
         opacity: 1;
-        transition: ease-in-out 0.5s;
+        transition: ease-in-out 0.6s;
     }
 
     .intro-logo.fade {
         bottom: 150px;
         opacity: 0;
-        transition: ease-in-out 0.5s;
+        transition: ease-in-out 1s;
     }
 
     .wrapper{
@@ -651,12 +661,14 @@ footer li {
     .navbar img {
         width: 100px;
         margin-left: 20px;
+        z-index: 3;
     }v
 
     .middle-section h1 {
         font-size: 24px;
         font-weight: 300;
         padding: 10px 25px;
+        z-index: 1;
     }
 
     .middle-section p {

@@ -1,20 +1,35 @@
-let intro = document.querySelector('.intro');
-let logo = document.querySelector('.logo-header');
 
 window.addEventListener('DOMContentLoaded', () => {
+  let intro = document.querySelector('.intro');
+  let introLogo = document.querySelector('.intro-logo');
 
-  setTimeout(() => {
-    document.querySelector('.intro-logo').classList.add('active');
-  }, 1000);
+  if (intro && introLogo) {
+    let isSplashScreenShown = localStorage.getItem('isSplashScreenShown');
 
-  setTimeout(() => {
-    document.querySelector('.intro-logo').classList.remove('active');
-    document.querySelector('.intro-logo').classList.add('fade');
-  }, 2000);
-
-  setTimeout(() => {
-    intro.style.top = '-100vh';
-  }, 2300)
+    if (!isSplashScreenShown) {
+      localStorage.setItem('isSplashScreenShown', 'true');
+    
+      setTimeout(() => {
+        introLogo.classList.add('active');
+      }, 500);
+    
+      setTimeout(() => {
+        introLogo.classList.remove('active');
+        introLogo.classList.add('fade');
+      }, 2000);
+    
+      setTimeout(() => {
+        intro.style.top = '-100vh';
+      }, 2300);
+    
+      setTimeout(() => {
+        localStorage.removeItem('isSplashScreenShown');
+      }, 0);
+      // 3600000
+    } else {
+      intro.style.display = 'none';
+    }
+  }
 })
 
 document.querySelector('.hamburger-icon').addEventListener('click', function() {
@@ -31,30 +46,35 @@ document.querySelectorAll('.nav-link a').forEach(function(link) {
 });
 
 window.addEventListener('scroll', function() {
-    var scrollPosition = window.scrollY || document.documentElement.scrollTop;
-  
+  var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+  var toPageUp = document.getElementById('toPageUp');
+  var footerPosition = document.getElementById('footer').getBoundingClientRect().top;
+
+  if (toPageUp) {
     if (scrollPosition > (0.5 * document.documentElement.clientHeight)) {
-      document.getElementById('toPageUp').classList.add('show'); 
+      toPageUp.classList.add('show'); 
     } else {
-      document.getElementById('toPageUp').classList.remove('show');
+      toPageUp.classList.remove('show');
     }
-  
-    var footerPosition = document.getElementById('footer').getBoundingClientRect().top;
+
     if (footerPosition <= document.documentElement.clientHeight) {
-      document.getElementById('toPageUp').classList.add('hide');
+      toPageUp.classList.add('hide');
     } else {
-        this.document.getElementById('toPageUp').classList.remove('hide');
+      toPageUp.classList.remove('hide');
     }
-  });
+  }
+});
 
 var toPageUpBtn = document.getElementById('toPageUp');
 
-toPageUpBtn.addEventListener('click', function(e) {
+if (toPageUpBtn) {
+  toPageUpBtn.addEventListener('click', function(e) {
     e.preventDefault();
 
     window.scrollTo ({
-        top: 0,
-        behavior: 'smooth'
+      top: 0,
+      behavior: 'smooth'
     });
-});
+  });
+}
   
