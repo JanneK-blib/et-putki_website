@@ -1,3 +1,22 @@
+let intro = document.querySelector('.intro');
+let logo = document.querySelector('.logo-header');
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  setTimeout(() => {
+    document.querySelector('.intro-logo').classList.add('active');
+  }, 1000);
+
+  setTimeout(() => {
+    document.querySelector('.intro-logo').classList.remove('active');
+    document.querySelector('.intro-logo').classList.add('fade');
+  }, 2000);
+
+  setTimeout(() => {
+    intro.style.top = '-100vh';
+  }, 2300)
+})
+
 document.querySelector('.hamburger-icon').addEventListener('click', function() {
     this.classList.toggle('active');
     document.querySelector('.nav-menu').classList.toggle('active');
