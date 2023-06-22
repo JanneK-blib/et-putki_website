@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="E.T Putki on espoolainen LVI-alan yritys, 
-    joka tarjoaa kattavat LVI-palvelut yksityis-, yritys- ja yhtiöasiakkaille. 
-    Palveluihimme kuuluvat ammattitaitoiset asennus-, korjaus- ja huoltotyöt. 
-    Toimimme pääasiassa Uudenmaan alueella, palvellen Espoon, Helsingin ja Vantaan alueen asiakkaita. 
-    Olemme sitoutuneet tarjoamaan laadukasta palvelua ja tyytyväisiä asiakkaita.">
+    <meta name="description" content="Luotettavasti putkityöt Espoon-, Helsingin-, ja Vantaan 
+    alueella vankalla ammattitaidolla.">
     <title>ET-Putki</title>
+    <link rel="icon" href="./images/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/reset.css">
@@ -73,7 +71,7 @@
             joka tarjoaa kattavat LVI-palvelut yksityis-, yritys- ja yhtiöasiakkaille. 
             Palveluihimme kuuluvat ammattitaitoiset asennus-, korjaus- ja huoltotyöt. 
             Toimimme pääasiassa Uudenmaan alueella, palvellen Espoon, Helsingin ja Vantaan alueen asiakkaita. 
-            Olemme sitoutuneet tarjoamaan laadukasta palvelua.
+            Sitoudumme aina tarjoamaan laadukasta palvelua.
             </p>
         
         <div class="center-btn">
@@ -90,22 +88,44 @@
             <div id="lvi-palvelut" class="boxText special-box">
                 <h1>LVI-Palvelut</h1>
                 <p>
-                - LVI korjaus- ja huoltotyöt <br>
-                - omakoti-, rivi- ja kerrostalojen putkityöt <br>
-                - Venttiilien vaihdot <br>
-                - Vesivuoto korjaukset <br>
-                - Viemärin avaukset <br>
-                - Viemärin kuvaukset <br>
-                - Hana asennukset, huollot ja vaihdot <br>
-                - Wc-istuimien huollot ja vaihdot <br>
-                - Lämminvesivaraajat <br>
-                - Vesikalusteiden asennukset esim. altaat, allaskaapit <br>
+                    - LVI korjaus- ja huoltotyöt
+                </p>
+                <p>
+                    - Omakoti-, rivi- ja kerrostalojen putkityöt   
+                </p>
+                <p>
+                    - Omakoti-, rivi- ja kerrostalojen putkityöt 
+                </p>
+                <p>
+                    - Venttiilien vaihdot 
+                </p>
+                <p>
+                    - Vesivuoto korjaukset
+                </p>
+                <p>
+                    - Viemärin avaukset 
+                </p>
+                <p>
+                    - Viemärin kuvaukset 
+                </p>
+                <p>
+                    - Hana asennukset, huollot ja vaihdot 
+                </p>
+                <p>
+                    - Wc-istuimien huollot ja vaihdot 
+                </p>
+                <p>
+                    - Lämminvesivaraajat 
+                </p>
+                <p>
+                    - Vesikalusteiden asennukset esim. altaat, allaskaapit
                 </p>
 
             </div>
         </div>
         <div class="column-reverse box-row">
             <span class="material-symbols-outlined tips_and_updates">tips_and_updates</span>
+            <div class="box boxImage"><img src="./images/putkia2.jpeg" alt="putkiliike"></div>
             <div id="tietoa-meista" class="box boxText">
                 <h1>Tietoa Meistä</h1>
                 <p>
@@ -116,8 +136,6 @@
                     Luota meille LVI-työsi, ja saat laadukasta palvelua ammattitaitoiselta tiimiltämme.
                 </p>
             </div>
-        
-        <div class="box boxImage"><img src="./images/putkia2.jpeg" alt="putkiliike"></div>
 
         </div>
 
@@ -137,23 +155,23 @@
 
     </section>
 
-    <h1 id="contact-us" class="form-header">Jätä yhteydenottopyyntö tai pyydä tarjous</h1>
-
     <section class="form-section">
-        
+        <h1 id="contact-us" class="form-header">Jätä yhteydenottopyyntö tai pyydä tarjous</h1>
         <div class="form">
-            <form action="/action_page.php">
-              <label for="fname">Nimi:</label><br>
-              <input type="text" id="fname"><br><br>
-              <label for="lname">Puhelin:</label><br>
-              <input type="text" id="lname"><br><br>
-              <label for="email">Sähköposti:</label><br>
-              <input type="text" id="email"><br><br>
-              <label for="address">Osoite:</label><br>
-              <input type="text" id="address"><br><br>
-              <label for="message">Viesti:</label><br>
-              <textarea id="message" name="message"></textarea><br>
-              <button class="contact-btn-form">Lähetä</button>
+            <form action="https://formsubmit.co/jan.kokkonen1@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Sähköpostia asiakkaalta!">
+                <input type="hidden" name="_captcha" value="false">
+                <label for="fname">*Nimi:</label><br>
+                <input type="text" id="name" required><br><br>
+                <label for="lname">*Puhelin:</label><br>
+                <input type="text" id="phone" required><br><br>
+                <label for="email">*Sähköposti:</label><br>
+                <input type="text" id="email" required><br><br>
+                <label for="address">Osoite:</label><br>
+                <input type="text" id="address"><br><br>
+                <label for="message">*Viesti:</label><br>
+                <textarea id="message" name="message" required></textarea><br>
+                <button class="contact-btn-form">Lähetä</button>
             </form>
           </div>
     </section>

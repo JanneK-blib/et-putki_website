@@ -10,7 +10,8 @@ body {
     background-color: black;
     font-family: 'Raleway', Arial, Helvetica, sans-serif;
     color: #bbb;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(25, 24, 37, 0.9) 50%, rgba(0, 0, 0, 1) 100%), url('/images/taustakuva1.jpeg');
+    /* background: rgb(45, 66, 99); */
+    background: linear-gradient(to bottom, rgba(0,0,0, 1) 20%, rgba(0,0,0, .7) 70%, rgba(0, 0, 0, 1) 100%), url('/images/taustakuva1.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -36,7 +37,7 @@ p {
     position: relative;
     top: 8px;
     left: 5px;
-    color: gold;
+    color: rgb(200, 75, 49);
 }
 
 .phone-contact {
@@ -49,7 +50,7 @@ p {
     display: flex;
     justify-content: space-between;
     height: 70px;
-    background-color: black;
+    background-color: rgb(0,0,0);
     color: white;
     max-width: 1366px;
     margin: 5px auto 0;
@@ -59,6 +60,7 @@ p {
 .navbar img {
     margin-left: 50px;
     width: 120px;
+    opacity: .9;
     height: auto;
 }
 
@@ -152,7 +154,7 @@ h1 {
     border: none;
     border-radius: 30px;
     width: max-content;
-    background: #009ee3;
+    background:rgb(0,143,205);
     opacity: .5;
     transition-property: transform, opacity;
     transition-duration: 1s;
@@ -162,7 +164,6 @@ h1 {
 .contact-btn:hover {
     opacity: 1;
     cursor: pointer;
-    color: black;
     transform: scale(1.1);
     transition: transform 1s ease;
     opacity: 1;
@@ -171,6 +172,10 @@ h1 {
 .contact-btn:not(:hover) {
     opacity: 1;
     transform: scale(1);
+}
+
+.box-row {
+    background: rgb(0,0,0, .8);
 }
 
 #tietoa-meista {
@@ -191,32 +196,34 @@ h1 {
     padding: 50px;
     align-items: center;
 }
+
 .boxText h1 {
     text-align: start;
     padding: 20px;
     font-size: 20px;
+    color: white;
     opacity: .9;
 }
+
 .boxText p {
     font-size: 16px;
     line-height: 1.7;
     letter-spacing: 1.2px;
-    padding: 0 20px;
+    color: white;
+    opacity: 1;
     opacity: .9;
 }
 
 /*lomake*/
-.form-header{
-    border-top: solid .5px gray;
-    font-size: 25px;
-    text-align: center;
-    padding-top: 100px;
-}
 .form-section {
-    width: 300px;
-    margin: 20px auto 100px;
-    background-color: rgba(0, 0, 0, 0.9);
-    height: 500px;
+    padding-bottom: 50px;
+}
+
+.form-header{
+    font-size: 20px;
+    text-align: center;
+    font-weight: 300;
+    padding-top: 30px;
 }
 
 .form {
@@ -249,7 +256,7 @@ textarea {
 
 .contact-btn-form {
     padding: 9px 40px;
-    background-color: #009ee3;
+    background-color: rgb(200, 75, 49);
     border-radius: 5px;
     border: none;
     font-size: 17px;
@@ -302,6 +309,8 @@ footer li {
     width: 150px;
     border-radius: 5px;
 }
+
+
 
 @media (min-width: 576px) {
     .middle-section h1 {
@@ -374,36 +383,41 @@ footer li {
     .wrapper {
         display: flex;
         flex-direction: column;
-        padding: 50px 25px;
+    }
+
+    .box-row {
+        max-width: 600px;
         border-radius: 10px;
+        margin: 0 auto 25px;
+        padding: 50px;
     }
-
-    .column-reverse {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
 
     .box img {
         display: flex;
         height: 100%;
-        width: 70%;
+        width: 90%;
         margin: auto;
     }
 
     .boxText {
-        width: 70%;
         margin: auto;
     }
 
     .boxText h1 {
+        text-align: center;
         font-size: 20px;
     }
 
     .boxText p {
         line-height: 2;
         font-size: 13px;
-        padding: 25px;
+    }
+    .form-section {
+        width: 300px;
+        margin: 50px auto 100px;
+        background: rgba(1,1,1, 0.5);
+        height: 500px;
+        border-radius: 10px;
     }
 }
 
@@ -435,42 +449,36 @@ footer li {
         border-radius: 5px;
     }
 
+    .boxText {
+    }
+
     .boxText h1 {
         font-size: 30px;
+        padding-left: 0;
+        text-align: start;
     }
     .boxText p {
         font-size: 14px;
+    }
+
+    .boxImage img {
+        width: 100%;
+        height: 300px;
     }
 
     .wrapper {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        margin: 100px auto;
-        max-width: 1300px;
-        gap: 75px;
-        background-color: rgba(0, 0, 0, 0.8);
-        padding: 50px 10px 100px;
+        width: 90%;
     }
 
     .box-row {
         display: flex;
-        flex-direction: row;
-        width: 90%;
-        margin: auto;
-        align-items: center;
-        gap: 75px;
-    }
-
-    
-    .boxImage {
-        flex: 1;
-    }
-
-    .boxText {
-        flex: 2;
+        flex-direction: column;
+        width: 30%;
+        min-width: 400px;
+        display: block;
     }
     
 
@@ -493,16 +501,15 @@ footer li {
         line-height: 2;
     }
 
+    .box-row {
+        padding: 25px 35px;
+    }
+
     .boxText h1 {
-        font-size: 35px;
+        font-size: 30px;
     }
     .boxText p {
-        font-size: 14px;
-        line-height: 2;
-    }
-    
-    .boxText li {
-        font-size: 16px;
+        font-size: 13px;
         line-height: 2;
     }
 
@@ -661,28 +668,17 @@ footer li {
         transition: ease-in-out 1s;
     }
 
-    .wrapper{
-        display: flex;
-        flex-direction: column;
-        row-gap: 1px;
-        margin-top: 0;
-        padding-top: 0;
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
     .material-symbols-outlined.tips_and_updates {
         color: white;
         display: block;
         text-align: center;
         width: 100px;
         margin: auto;
-        padding-left: 10px !important;
         font-size: 50px;
-        opacity: .8;
-        color: gold;
+        opacity: 1;
+        color: rgb(200, 75, 49);
         position: relative;
-        top: 25px;
-        background-color: rgba(0, 0, 0, 0.8);
+        top: 30px;
         border-radius: 33px !important;
       }
       
@@ -693,13 +689,11 @@ footer li {
         text-align: center;
         width: 100px;
         margin: auto;
-        padding-left: 3px !important;
         font-size: 50px;
-        opacity: .8;
-        color: gold;
+        opacity: 1;
+        color: rgb(200, 75, 49);
         position: relative;
-        top: 25px;
-        background-color: rgba(0, 0, 0, 0.8);
+        top: 30px;
         border-radius: 33px !important;
     }
 
@@ -709,13 +703,11 @@ footer li {
         text-align: center;
         width: 100px;
         margin: auto;
-        padding-left: 2px !important;
         font-size: 50px;
-        opacity: .8;
-        color: gold;
+        opacity: 1;
+        color: rgb(200, 75, 49);
         position: relative;
-        top: 25px;
-        background-color: rgba(0, 0, 0, 0.8);
+        top: 30px;
         border-radius: 33px !important;
     }
 
@@ -741,9 +733,9 @@ footer li {
     }v
 
     .middle-section h1 {
-        font-size: 2411px;
+        font-size: 21px;
         font-weight: 300;
-        padding: 10px 50px;
+        padding: 10px 40px;
         z-index: 1;
     }
 
@@ -756,14 +748,13 @@ footer li {
     }
 
     .boxText {
-        padding: 45px 20px 50px;
         width: 90%;
-        margin: auto;
-        border: .5px solid rgba(255, 255, 255, 0.2);
+        margin: 0 auto 35px;
         border-radius: 10px;
     }
 
     .boxText h1 {
+        padding-left: 50px;
         font-size: 24px;
         font-weight: 300;
         padding-left: 4px;
@@ -771,14 +762,8 @@ footer li {
     .boxText p {
         font-size: 14px;
         font-weight: 300;
-        line-height: 2;
-        padding: 5px;
-    }
-    
-    .boxText li {
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 2;
+        line-height: 1.7;
+        text-align: start;
     }
 
     .contact-btn {
@@ -788,16 +773,26 @@ footer li {
         margin-top: 20px;
     }
 
-    .wrapper {
-        padding-bottom: 50px;
-        margin-bottom: 50px;
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1px;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .box-row {
         border-radius: 10px;
+        margin: 0 10px 25px;
     }
 
     .form-section {
-        background: rgba(25, 24, 37, 0.7);
+        background: rgba(0,0,0, 0.8);
         border-radius: 10px;
         padding-top: 10px;
+        margin: 25px auto;
+        max-width: 300px;
+
     }
 
     .form-header {
@@ -824,10 +819,18 @@ footer li {
         font-size: 13px;
     }
 
+    .boxText {
+        padding: 40px 35px;
+    }
+
     .boxText p {
-        line-height: 1.6;
+        line-height: 1.8;
         font-size: 13px;
         font-weight: 300;
+    }
+
+    .wrapper {
+        margin-left: 5px;
     }
 
 }
