@@ -162,16 +162,17 @@
                 <input type="hidden" name="_subject" value="Sähköpostia asiakkaalta!">
                 <input type="hidden" name="_captcha" value="false">
                 <label for="fname">*Nimi:</label><br>
-                <input type="text" id="name" required><br><br>
+                <input type="text" name="name" id="name" required><br><br>
                 <label for="lname">*Puhelin:</label><br>
-                <input type="text" id="phone" required><br><br>
+                <input type="phone" name="phone" id="phone" required><br><br>
                 <label for="email">*Sähköposti:</label><br>
-                <input type="text" id="email" required><br><br>
+                <input type="email" name="email" id="email" required><br><br>
                 <label for="address">Osoite:</label><br>
-                <input type="text" id="address"><br><br>
+                <input type="text" name="address" id="address"><br><br>
                 <label for="message">*Viesti:</label><br>
                 <textarea id="message" name="message" required></textarea><br>
                 <button class="contact-btn-form">Lähetä</button>
+                <input type="hidden" name="_next" value="http://127.0.0.1:5500/thank_you.html">
             </form>
           </div>
     </section>
