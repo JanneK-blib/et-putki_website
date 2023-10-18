@@ -449,9 +449,6 @@ footer li {
         border-radius: 5px;
     }
 
-    .boxText {
-    }
-
     .boxText h1 {
         font-size: 30px;
         padding-left: 0;
@@ -468,16 +465,14 @@ footer li {
 
     .wrapper {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         width: 90%;
     }
 
     .box-row {
-        display: flex;
-        flex-direction: column;
-        width: 30%;
-        min-width: 400px;
+        width: 33%;
+        min-width: 500px;
         display: block;
     }
     
@@ -501,7 +496,17 @@ footer li {
         line-height: 2;
     }
 
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        max-width: fit-content;
+        margin: auto;
+    }
+
     .box-row {
+        min-width: 350px;
         padding: 25px 35px;
     }
 
@@ -511,10 +516,6 @@ footer li {
     .boxText p {
         font-size: 13px;
         line-height: 2;
-    }
-
-    .wrapper {
-        margin: auto;
     }
 
     .contact-btn {
