@@ -7,7 +7,7 @@
 }
 
 html, body {
-    background-color: black;
+    background-color: white;
     font-family: 'Raleway', Arial, Helvetica, sans-serif;
     color: #bbb;
     /* background: rgb(45, 66, 99); */
@@ -38,7 +38,7 @@ p {
     position: relative;
     top: 8px;
     left: 5px;
-    color: rgb(200, 75, 49);
+    color: #B33951;
 }
 
 .phone-contact {
@@ -75,7 +75,7 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 300;
     list-style-type: none;
     letter-spacing: 1.5px;
     margin-left: 20px;
@@ -121,15 +121,18 @@ h1 {
 
 .middle-section {
     max-width: 800px;
-    margin: auto;
+    margin: 50px auto;
     padding: 30px 0 50px;
     letter-spacing: 2px;
+    background-color: rgba(0,0,0, 0.9);
 }
 
 .middle-section h1 {
     color: white;
     text-align: center;
     font-size: 40px;
+    font-weight: 300;
+    line-height: 40px;
     opacity: .9;
 }
 
@@ -151,12 +154,14 @@ h1 {
 .contact-btn {
     color: white;
     font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
     padding: 20px 30px;
     cursor: pointer;
     border: none;
-    border-radius: 30px;
+    border-radius: 5px;
     width: max-content;
-    background:rgb(0,143,205);
+    background:#B33951;
     opacity: .5;
     transition-property: transform, opacity;
     transition-duration: 1s;
@@ -260,11 +265,13 @@ textarea {
 
 .contact-btn-form {
     padding: 9px 40px;
-    background-color: rgb(200, 75, 49);
+    color: white;
+    background-color: #B33951;
     border-radius: 5px;
     border: none;
     font-size: 17px;
-    letter-spacing: 1px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
     text-transform: capitalize;
     width: 100%;
     margin-top: 10px;

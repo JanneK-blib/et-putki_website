@@ -6,7 +6,7 @@
 }
 
 .thank-you-message {
-    background-color: rgb(0,143,205);
+    background-color: #1C1C1B;
     box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
 
 .thank-you-message a {
     text-align: center;
-    color: white;
+    color: #1C1C1B;
     text-decoration: none;
 }
 
@@ -29,13 +29,16 @@
     line-height: 25px;
     font-size: 20px;
     text-align: center;
+    color: #F1F7ED;
     opacity: 1;
 }
 
 .contact-btn {
-    background-color: rgb(200, 75, 49, 0.9);
+    background-color: #B33951;
     margin: 25px 0 25px;
-    font-weight: 300;
+    font-weight: lighter;
+    color: #F1F7ED;
+    letter-spacing: 1.5px;
 }
 
 
