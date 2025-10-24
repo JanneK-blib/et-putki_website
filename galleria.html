@@ -51,20 +51,249 @@
         </div>
     </div>
     </header>
-    <section class="galleria-wrapper">
-        <div class="galleria-img"><img src="./images/Galleria/amme.jpg" alt="kylpyhuoneremontti putkimies Tapiola Espoo"></div>
-        <div class="galleria-img"><img src="./images/Galleria/galleria2.jfif" alt="LVI-työ putkimies Espoo vesikalusteasennus"></div>
-        <div class="galleria-img"><img src="./images/Galleria/galleria3.jfif" alt="putkityö Helsinki viemärikorjaus"></div>
-        <div class="galleria-img"><img src="./images/Galleria/galleria4.jfif" alt="putkimies Vantaa LVI-asennus"></div>
-        <div class="galleria-img"><img src="./images/Galleria/joku.jpeg" alt="putkikorjaus ET-Putki ammattityö"></div>
-        <div class="galleria-img"><img src="./images/Galleria/joku2.jpeg" alt="LVI-saneeraus putkimies Espoo"></div>
-        <div class="galleria-img"><img src="./images/Galleria/lattiaremppa.jpeg" alt="lattiaremontti putkityöt Espoo"></div>
-        <div class="galleria-img"><img src="./images/Galleria/letku.jpeg" alt="viemärihuolto letku putkimies Helsinki"></div>
-        <div class="galleria-img"><img src="./images/Galleria/putkia.jpeg" alt="putkiasennus LVI-työ Espoo Helsinki"></div>
-        <div class="galleria-img"><img src="./images/Galleria/red.jpeg" alt="lämmitysputkityö putkimies Vantaa"></div>
-        <div class="galleria-img"><img src="./images/Galleria/remppa.jpeg" alt="kylpyhuonesaneeraus putkimies Espoo"></div>
-        <div class="galleria-img"><img src="./images/Galleria/toiletseat.jpeg" alt="WC-istuin vaihto asennus putkimies"></div>
-    </section>
+    <main>
+        <nav class="breadcrumb">
+            <div class="breadcrumb-container">
+                <a href="./index.html">
+                    <span class="material-symbols-outlined">home</span>
+                    Etusivu
+                </a>
+                <span class="separator">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </span>
+                <span class="current">Galleria</span>
+            </div>
+        </nav>
+
+        <section class="galleria-hero">
+            <div class="hero-content">
+                <h1>Työt Galleria</h1>
+                <p>Katso esimerkkejä ammattitaitoisista LVI-töistämme</p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-number">12+</span>
+                        <span class="stat-label">Projektia</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Tyytyväisiä asiakkaita</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Vuoden kokemus</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="filter-controls">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Kaikki työt</button>
+                <button class="filter-btn" data-filter="kylpyhuone">Kylpyhuoneet</button>
+                <button class="filter-btn" data-filter="viemari">Viemärit</button>
+                <button class="filter-btn" data-filter="asennus">Asennukset</button>
+                <button class="filter-btn" data-filter="korjaus">Korjaukset</button>
+            </div>
+        </section>
+
+        <section class="galleria-wrapper">
+            <div class="galleria-item" data-category="kylpyhuone">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/amme.jpg" alt="kylpyhuoneremontti putkimies Tapiola Espoo" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>Kylpyhuoneremontti</h3>
+                            <p>Ammattimainen kylpyhuonesaneeraus Espoossa</p>
+                            <button class="expand-btn" data-src="./images/Galleria/amme.jpg">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galleria-item" data-category="asennus">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/galleria2.jfif" alt="LVI-työ putkimies Espoo vesikalusteasennus" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>Vesikalusteasennus</h3>
+                            <p>Modernien vesikalusteiden asentaminen</p>
+                            <button class="expand-btn" data-src="./images/Galleria/galleria2.jfif">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galleria-item" data-category="viemari">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/galleria3.jfif" alt="putkityö Helsinki viemärikorjaus" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>Viemärikorjaus</h3>
+                            <p>Ammattitaitoista viemärihuoltoa Helsingissä</p>
+                            <button class="expand-btn" data-src="./images/Galleria/galleria3.jfif">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galleria-item" data-category="asennus">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/galleria4.jfif" alt="putkimies Vantaa LVI-asennus" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>LVI-asennus</h3>
+                            <p>Laadukkaita LVI-asennustöitä Vantaalla</p>
+                            <button class="expand-btn" data-src="./images/Galleria/galleria4.jfif">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galleria-item" data-category="korjaus">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/joku.jpeg" alt="putkikorjaus ET-Putki ammattityö" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>Putkikorjaus</h3>
+                            <p>Nopeat ja luotettavat putkikorjaukset</p>
+                            <button class="expand-btn" data-src="./images/Galleria/joku.jpeg">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galleria-item" data-category="kylpyhuone">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/joku2.jpeg" alt="LVI-saneeraus putkimies Espoo" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>LVI-saneeraus</h3>
+                            <p>Kokonaisvaltaisia saneeraustöitä</p>
+                            <button class="expand-btn" data-src="./images/Galleria/joku2.jpeg">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galleria-item" data-category="kylpyhuone">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/lattiaremppa.jpeg" alt="lattiaremontti putkityöt Espoo" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>Lattiaremontti</h3>
+                            <p>Lattialämmitysjärjestelmien asennus</p>
+                            <button class="expand-btn" data-src="./images/Galleria/lattiaremppa.jpeg">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galleria-item" data-category="viemari">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/letku.jpeg" alt="viemärihuolto letku putkimies Helsinki" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>Viemärihuolto</h3>
+                            <p>Tehokasta viemärinpuhdistusta</p>
+                            <button class="expand-btn" data-src="./images/Galleria/letku.jpeg">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galleria-item" data-category="asennus">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/putkia.jpeg" alt="putkiasennus LVI-työ Espoo Helsinki" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>Putkiasennus</h3>
+                            <p>Putkistojen asennus ja modernisointi</p>
+                            <button class="expand-btn" data-src="./images/Galleria/putkia.jpeg">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galleria-item" data-category="asennus">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/red.jpeg" alt="lämmitysputkityö putkimies Vantaa" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>Lämmitysputkityö</h3>
+                            <p>Lämmitysjärjestelmien huolto ja asennus</p>
+                            <button class="expand-btn" data-src="./images/Galleria/red.jpeg">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galleria-item" data-category="kylpyhuone">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/remppa.jpeg" alt="kylpyhuonesaneeraus putkimies Espoo" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>Kylpyhuonesaneeraus</h3>
+                            <p>Täydellinen kylpyhuoneremontti</p>
+                            <button class="expand-btn" data-src="./images/Galleria/remppa.jpeg">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galleria-item" data-category="asennus">
+                <div class="galleria-card">
+                    <img src="./images/Galleria/toiletseat.jpeg" alt="WC-istuin vaihto asennus putkimies" loading="lazy">
+                    <div class="card-overlay">
+                        <div class="card-content">
+                            <h3>WC-istuin vaihto</h3>
+                            <p>WC-kalusteiden asennus ja vaihto</p>
+                            <button class="expand-btn" data-src="./images/Galleria/toiletseat.jpeg">
+                                <span class="material-symbols-outlined">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <img id="modal-image" src="" alt="">
+                <div class="modal-nav">
+                    <button id="prev-btn" class="nav-btn">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button id="next-btn" class="nav-btn">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
     <a href="#" id="toPageUp">
         <span class="material-symbols-outlined arrow">
         arrow_upward
