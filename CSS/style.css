@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -10,6 +10,8 @@ html,
 body {
   background-color: white;
   font-family: "Raleway", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
   color: #bbb;
   /* background: rgb(45, 66, 99); */
   background: linear-gradient(
@@ -29,8 +31,10 @@ body {
 }
 
 p {
-  line-height: 1.5;
-  letter-spacing: 1.5px;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
 }
 
 .material-symbols-outlined {
@@ -77,11 +81,11 @@ p {
 nav ul li a {
   text-decoration: none;
   color: white;
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 400;
   list-style-type: none;
-  letter-spacing: 1.5px;
-  margin-left: 20px;
+  letter-spacing: 0.5px;
+  margin-left: 1.25rem;
   opacity: 0.9;
 }
 
@@ -98,8 +102,8 @@ nav ul li a:hover {
 
 li {
   list-style-type: none;
-  line-height: 1.8;
-  font-size: 15px;
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
 /*Yläosan kuva-asettelu*/
@@ -117,9 +121,28 @@ li {
   display: block;
 }
 h1 {
-  font-weight: 900;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: white;
   text-align: center;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.875rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
 }
 
 .middle-section {
@@ -133,10 +156,11 @@ h1 {
 .middle-section h1 {
   color: white;
   text-align: center;
-  font-size: 40px;
-  font-weight: 300;
-  line-height: 40px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
   opacity: 0.9;
+  margin-bottom: 1.5rem;
 }
 
 .middle-section p {
@@ -144,9 +168,10 @@ h1 {
   margin: auto;
   text-align: center;
   color: white;
-  padding: 30px;
-  font-size: 16px;
+  padding: 1.875rem;
+  font-size: 1.125rem;
   opacity: 0.9;
+  line-height: 1.7;
 }
 
 .center-btn {
@@ -156,18 +181,18 @@ h1 {
 
 .contact-btn {
   color: white;
-  font-size: 18px;
-  font-weight: 300;
-  letter-spacing: 1.5px;
-  padding: 20px 30px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 1.25rem 1.875rem;
   cursor: pointer;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   width: max-content;
   background: #b33951;
   opacity: 0.5;
   transition-property: transform, opacity;
-  transition-duration: 1s;
+  transition-duration: 0.3s;
   transition-timing-function: ease-out;
 }
 
@@ -208,19 +233,21 @@ h1 {
 
 .boxText h1 {
   text-align: start;
-  padding: 20px;
-  font-size: 20px;
+  padding: 1.25rem;
+  font-size: 1.75rem;
+  font-weight: 600;
   color: white;
   opacity: 0.9;
+  margin-bottom: 1rem;
 }
 
 .boxText p {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.7;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.3px;
   color: white;
-  opacity: 1;
   opacity: 0.9;
+  margin-bottom: 0.5rem;
 }
 
 /*lomake*/
@@ -229,10 +256,11 @@ h1 {
 }
 
 .form-header {
-  font-size: 20px;
+  font-size: 1.75rem;
   text-align: center;
-  font-weight: 300;
-  padding-top: 30px;
+  font-weight: 600;
+  padding-top: 1.875rem;
+  line-height: 1.3;
 }
 
 .form {
@@ -243,7 +271,8 @@ h1 {
 }
 label {
   color: white;
-  font-size: 13px;
+  font-size: 0.875rem;
+  font-weight: 500;
   opacity: 0.9;
 }
 input {
@@ -266,17 +295,23 @@ textarea {
 }
 
 .contact-btn-form {
-  padding: 9px 40px;
+  padding: 0.75rem 2.5rem;
   color: white;
   background-color: #b33951;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   border: none;
-  font-size: 17px;
-  font-weight: 300;
-  letter-spacing: 1.5px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   text-transform: capitalize;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 0.625rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-btn-form:hover {
+  background-color: #9a2d42;
 }
 
 /*Footer alkaa*/
@@ -316,11 +351,12 @@ footer li {
 }
 .contact-header {
   color: white;
-  text-align: start;
-  text-transform: uppercase;
-  padding-bottom: 30px;
   text-align: center;
-  font-size: 20px;
+  text-transform: uppercase;
+  padding-bottom: 1.875rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .luotettavaLogo {
@@ -331,37 +367,37 @@ footer li {
 
 @media (min-width: 576px) {
   .middle-section h1 {
-    font-size: 5vw;
+    font-size: 2rem;
   }
 
   .middle-section p {
-    font-size: 1.7vw;
+    font-size: 1rem;
   }
 
   .boxText {
-    padding: 25px;
+    padding: 1.5625rem;
   }
 
   .boxText h1 {
-    font-size: 4vw;
+    font-size: 1.75rem;
   }
   .boxText p {
-    font-size: 1.3vw;
+    font-size: 0.875rem;
   }
 
   .boxText li {
-    font-size: 1.3vw;
+    font-size: 0.875rem;
   }
 
   .wrapper {
-    row-gap: 25px;
-    column-gap: 25px;
-    margin: 25px;
+    row-gap: 1.5625rem;
+    column-gap: 1.5625rem;
+    margin: 1.5625rem;
   }
 
   nav ul li a {
-    font-size: 1.4vw;
-    margin-left: 15px;
+    font-size: 0.875rem;
+    margin-left: 0.9375rem;
   }
 }
 
@@ -387,14 +423,14 @@ footer li {
   }
 
   .middle-section h1 {
-    font-size: 24px;
-    padding: 0 50px;
+    font-size: 1.75rem;
+    padding: 0 3.125rem;
   }
 
   .middle-section p {
-    font-size: 12px;
-    padding: 50px;
-    line-height: 2;
+    font-size: 1rem;
+    padding: 3.125rem;
+    line-height: 1.7;
   }
 
   .wrapper {
@@ -422,12 +458,12 @@ footer li {
 
   .boxText h1 {
     text-align: center;
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 
   .boxText p {
-    line-height: 2;
-    font-size: 13px;
+    line-height: 1.7;
+    font-size: 0.875rem;
   }
   .form-section {
     width: 300px;
@@ -440,11 +476,11 @@ footer li {
 
 @media (min-width: 992px) {
   .middle-section h1 {
-    font-size: 4vw;
+    font-size: 2.25rem;
   }
 
   .middle-section p {
-    font-size: 1.3vw;
+    font-size: 1.125rem;
   }
 
   .boxText {
@@ -467,12 +503,12 @@ footer li {
   }
 
   .boxText h1 {
-    font-size: 30px;
+    font-size: 2rem;
     padding-left: 0;
     text-align: start;
   }
   .boxText p {
-    font-size: 14px;
+    font-size: 1rem;
   }
 
   .boxImage img {
@@ -494,22 +530,22 @@ footer li {
   }
 
   nav ul li a {
-    font-size: 15px;
-    margin-left: 20px;
+    font-size: 1rem;
+    margin-left: 1.25rem;
   }
 }
 
 @media (min-width: 1200px) {
   .middle-section h1 {
-    margin-top: 25px;
-    font-size: 35px;
-    padding-top: 5px;
+    margin-top: 1.5625rem;
+    font-size: 2.5rem;
+    padding-top: 0.3125rem;
   }
 
   .middle-section p {
-    font-size: 14px;
-    padding: 50px 0 75px;
-    line-height: 2;
+    font-size: 1.125rem;
+    padding: 3.125rem 0 4.6875rem;
+    line-height: 1.7;
   }
 
   .wrapper {
@@ -527,11 +563,11 @@ footer li {
   }
 
   .boxText h1 {
-    font-size: 30px;
+    font-size: 2rem;
   }
   .boxText p {
-    font-size: 13px;
-    line-height: 2;
+    font-size: 0.875rem;
+    line-height: 1.7;
   }
 
   .contact-btn {
@@ -630,8 +666,8 @@ footer li {
     animation-duration: 0.5s;
     animation-delay: 0.4s;
     animation-fill-mode: forwards;
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 400;
     z-index: 3;
   }
   .nav-menu:not(.active) a {
@@ -747,18 +783,18 @@ footer li {
     margin-left: 20px;
     z-index: 3;
   }
-  v .middle-section h1 {
-    font-size: 21px;
-    font-weight: 300;
-    padding: 10px 40px;
+  .middle-section h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.625rem 2.5rem;
     z-index: 1;
   }
 
   .middle-section p {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 2;
-    padding: 50px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    padding: 3.125rem;
     z-index: 1;
   }
 
@@ -769,23 +805,22 @@ footer li {
   }
 
   .boxText h1 {
-    padding-left: 50px;
-    font-size: 24px;
-    font-weight: 300;
-    padding-left: 4px;
+    padding-left: 0.25rem;
+    font-size: 1.5rem;
+    font-weight: 600;
   }
   .boxText p {
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 400;
     line-height: 1.7;
     text-align: start;
   }
 
   .contact-btn {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
-    padding: 15px 30px;
-    margin-top: 20px;
+    padding: 1rem 1.875rem;
+    margin-top: 1.25rem;
   }
 
   .wrapper {
@@ -810,40 +845,40 @@ footer li {
   }
 
   .form-header {
-    font-size: 20px;
-    padding: 50px 25px 20px;
-    font-weight: 300;
+    font-size: 1.25rem;
+    padding: 3.125rem 1.5625rem 1.25rem;
+    font-weight: 600;
   }
 
   .form label {
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 0.875rem;
+    font-weight: 500;
   }
 }
 
 @media (max-width: 500px) {
   .middle-section h1 {
-    font-size: 20px;
-    padding: 15px 22px 0;
+    font-size: 1.375rem;
+    padding: 0.9375rem 1.375rem 0;
     line-height: 1.3;
   }
 
   .middle-section p {
     line-height: 1.6;
-    font-size: 13px;
+    font-size: 0.875rem;
   }
 
   .boxText {
-    padding: 40px 35px;
+    padding: 2.5rem 2.1875rem;
   }
 
   .boxText p {
-    line-height: 1.8;
-    font-size: 13px;
-    font-weight: 300;
+    line-height: 1.7;
+    font-size: 0.875rem;
+    font-weight: 400;
   }
 
   .wrapper {
-    margin-left: 5px;
+    margin-left: 0.3125rem;
   }
 }
