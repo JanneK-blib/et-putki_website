@@ -48,6 +48,16 @@ window.addEventListener('scroll', function() {
   var scrollPosition = window.scrollY || document.documentElement.scrollTop;
   var toPageUp = document.getElementById('toPageUp');
   var footerPosition = document.getElementById('footer').getBoundingClientRect().top;
+  var navbar = document.querySelector('.navbar');
+
+  // Modern navbar scroll effect (desktop only)
+  if (window.innerWidth >= 651 && navbar) {
+    if (scrollPosition > 100) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }
 
   if (toPageUp) {
     if (scrollPosition > (0.5 * document.documentElement.clientHeight)) {
