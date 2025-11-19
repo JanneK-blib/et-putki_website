@@ -131,6 +131,27 @@
       </figure>
     </section>
 
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1>Ammattitaitoista Putkimies Palvelua!</h1>
+        <p>Luotettavaa ja laadukasta LVI-palvelua Espoon, Helsingin, Vantaan ja Kirkkonummen alueella</p>
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Tyytyväistä asiakasta</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Hätäpalvelu</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Vuoden kokemus</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="middle-section">
       <h1>Putkimies Espoo, Helsinki, Vantaa - Luotettavasti kaikki LVI-palvelut</h1>
 
@@ -158,16 +179,6 @@
         <span class="material-symbols-outlined plumbing">plumbing</span>
         <div id="lvi-palvelut" class="boxText special-box">
           <h1>LVI-Palvelut</h1>
-          <!-- <p>- LVI korjaus- ja huoltotyöt</p>
-          <p>- Omakoti-, rivi- ja kerrostalojen putkityöt</p>
-          <p>- Venttiilien vaihdot</p>
-          <p>- Vesivuoto korjaukset</p>
-          <p>- Viemärin avaukset</p>
-          <p>- Viemärin kuvaukset</p>
-          <p>- Hana asennukset, huollot ja vaihdot</p>
-          <p>- Wc-istuimien huollot ja vaihdot</p>
-          <p>- Lämminvesivaraajat</p>
-          <p>- Vesikalusteiden asennukset esim. altaat, allaskaapit</p> -->
           <p>🏠 Omakoti-, rivi- ja kerrostalojen putkityöt</p>
           <p>🚰 Hanojen asennukset, huollot sekä vaihdot</p>
           <p>💧 Vesivuotojen paikantaminen ja korjaus</p>
@@ -229,37 +240,169 @@
     </section>
 
     <section class="form-section">
-      <h1 id="contact-us" class="form-header">
-        Jätä yhteydenottopyyntö tai pyydä tarjous
-      </h1>
-      <div class="form">
-        <form
-          action="https://formsubmit.co/info.etputki@gmail.com"
-          method="POST"
-        >
-          <input
-            type="hidden"
-            name="_subject"
-            value="Sähköpostia asiakkaalta!"
-          />
-          <input type="hidden" name="_captcha" value="false" />
-          <label for="fname">*Nimi:</label><br />
-          <input type="text" name="name" id="name" required /><br /><br />
-          <label for="lname">*Puhelin:</label><br />
-          <input type="phone" name="phone" id="phone" required /><br /><br />
-          <label for="email">*Sähköposti:</label><br />
-          <input type="email" name="email" id="email" required /><br /><br />
-          <label for="address">Osoite:</label><br />
-          <input type="text" name="address" id="address" /><br /><br />
-          <label for="message">*Viesti:</label><br />
-          <textarea id="message" name="message" required></textarea><br />
-          <button class="contact-btn-form">Lähetä</button>
-          <input
-            type="hidden"
-            name="_next"
-            value="https://etputki.fi/thank_you.html"
-          />
-        </form>
+      <div class="form-container">
+        <h1 id="contact-us" class="form-header">
+          Jätä yhteydenottopyyntö tai pyydä tarjous
+        </h1>
+        
+        <div class="form-card">
+          <form id="contactForm" class="modern-form"
+            action="https://formsubmit.co/info.etputki@gmail.com"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="Sähköpostia asiakkaalta!" />
+            <input type="hidden" name="_captcha" value="false" />
+            
+            <!-- Progress Bar -->
+            <div class="form-progress">
+              <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <fieldset class="form-fieldset">
+              
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="name">Nimi *</label>
+                  <div class="input-wrapper">
+                    <input 
+                      type="text" 
+                      name="name" 
+                      id="name" 
+                      placeholder="Etunimi Sukunimi"
+                      required 
+                      maxlength="50"
+                    />
+                    <span class="input-status" id="nameStatus"></span>
+                  </div>
+                  <span class="error-message" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Puhelin *</label>
+                  <div class="input-wrapper">
+                    <input 
+                      type="tel" 
+                      name="phone" 
+                      id="phone" 
+                      placeholder="0400 123 456"
+                      pattern="[0-9\s\-\+]+"
+                      required 
+                    />
+                    <span class="input-status" id="phoneStatus"></span>
+                  </div>
+                  <span class="error-message" id="phoneError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Sähköposti *</label>
+                  <div class="input-wrapper">
+                    <input 
+                      type="email" 
+                      name="email" 
+                      id="email" 
+                      placeholder="nimi@esimerkki.fi"
+                      required 
+                    />
+                    <span class="input-status" id="emailStatus"></span>
+                  </div>
+                  <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="address">Osoite</label>
+                  <div class="input-wrapper">
+                    <input 
+                      type="text" 
+                      name="address" 
+                      id="address" 
+                      placeholder="Katu 123, Kaupunki"
+                      maxlength="100"
+                    />
+                    <span class="input-status" id="addressStatus"></span>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Service Selection -->
+            <fieldset class="form-fieldset">
+              
+              <div class="form-group">
+                <label for="service">Valitse palvelu</label>
+                <div class="input-wrapper">
+                  <select name="service" id="service" class="form-select">
+                    <option value="">-- Valitse palvelu --</option>
+                    <option value="Vesivuotokorjaus">💧 Vesivuotokorjaus</option>
+                    <option value="Viemärihuolto">🚽 Viemärihuolto</option>
+                    <option value="LVI-asennus">⚙️ LVI-asennus</option>
+                    <option value="Hanavaihto">🚰 Hanavaihto</option>
+                    <option value="Kylpyhuoneremontti">🛁 Kylpyhuoneremontti</option>
+                    <option value="Lämmityshuolto">🔥 Lämmityshuolto</option>
+                    <option value="Muu palvelu">📋 Muu palvelu</option>
+                  </select>
+                </div>
+              </div>
+
+            </fieldset>
+
+            <!-- Message Section -->
+            <fieldset class="form-fieldset">
+              
+              <div class="form-group">
+                <label for="message">Viesti *</label>
+                <div class="textarea-wrapper">
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    placeholder="Kerro tarkemmin minkälaista palvelua tarvitset..."
+                    required
+                    maxlength="1000"
+                  ></textarea>
+                  <span class="char-counter">
+                    <span id="charCount">0</span>/1000
+                  </span>
+                  <span class="input-status" id="messageStatus"></span>
+                </div>
+                <span class="error-message" id="messageError"></span>
+              </div>
+            </fieldset>
+
+            <!-- GDPR Consent -->
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input 
+                  type="checkbox" 
+                  id="gdpr" 
+                  name="gdpr" 
+                  required
+                >
+                <span class="checkbox-custom"></span>
+                Hyväksyn tietojeni käsittelyn
+              </label>
+              <span class="error-message" id="gdprError"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-actions">
+              <button type="submit" class="contact-btn-form" id="submitBtn">
+                <span class="btn-text">Lähetä viesti</span>
+                <span class="btn-spinner" id="btnSpinner"></span>
+              </button>
+            </div>
+
+            <input type="hidden" name="_next" value="https://etputki.fi/thank_you.html" />
+          </form>
+
+          <!-- Success Message -->
+          <div class="success-message" id="successMessage">
+            <div class="success-content">
+              <span class="success-icon">✅</span>
+              <h3>Kiitos yhteydenotostasi!</h3>
+              <p>Otamme sinuun yhteyttä mahdollisimman pian.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

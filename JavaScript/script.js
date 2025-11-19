@@ -300,5 +300,248 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Modern Form Handler
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    initializeModernForm();
+  }
 });
-  
+
+// Modern Form Functions
+function initializeModernForm() {
+  const form = document.getElementById('contactForm');
+  const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea, select');
+  const charCountInput = document.getElementById('message');
+  const charCount = document.getElementById('charCount');
+  const progressBar = document.getElementById('progressBar');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // Character counter
+  if (charCountInput && charCount) {
+    charCountInput.addEventListener('input', function() {
+      charCount.textContent = this.value.length;
+      updateProgress();
+    });
+  }
+
+  // Input validation on blur
+  inputs.forEach(input => {
+    input.addEventListener('blur', function() {
+      validateField(this);
+      updateProgress();
+    });
+
+    input.addEventListener('input', function() {
+      validateField(this);
+      updateProgress();
+    });
+
+    input.addEventListener('focus', function() {
+      clearError(this.id);
+    });
+  });
+
+  // Form submission
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Validate all fields
+    let isValid = true;
+    inputs.forEach(input => {
+      if (!validateField(input)) {
+        isValid = false;
+      }
+    });
+
+    // Validate GDPR checkbox
+    const gdprCheckbox = document.getElementById('gdpr');
+    if (!gdprCheckbox.checked) {
+      showError('gdpr', 'Sinun tulee hyväksyä tietojesi käsittely');
+      isValid = false;
+    }
+
+    if (!isValid) {
+      return;
+    }
+
+    // Show loading state
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+
+    // Submit form
+    setTimeout(() => {
+      form.submit();
+    }, 500);
+  });
+
+  // Validate on GDPR checkbox change
+  const gdprCheckbox = document.getElementById('gdpr');
+  if (gdprCheckbox) {
+    gdprCheckbox.addEventListener('change', function() {
+      if (this.checked) {
+        clearError('gdpr');
+      }
+    });
+  }
+}
+
+function validateField(field) {
+  const fieldName = field.name || field.id;
+  let isValid = true;
+  let errorMessage = '';
+
+  // Skip non-required fields that are empty
+  if (!field.hasAttribute('required') && field.value.trim() === '') {
+    clearStatus(field.id);
+    return true;
+  }
+
+  // Validate required fields
+  if (field.hasAttribute('required') && field.value.trim() === '') {
+    isValid = false;
+    errorMessage = 'Tämä kenttä on pakollinen';
+  }
+
+  // Specific field validations
+  if (isValid) {
+    if (field.type === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(field.value)) {
+        isValid = false;
+        errorMessage = 'Syötä kelvollinen sähköpostiosoite';
+      }
+    }
+
+    if (field.type === 'tel') {
+      const phoneRegex = /^[0-9\s\-\+()]{6,}$/;
+      if (!phoneRegex.test(field.value.replace(/\s/g, ''))) {
+        isValid = false;
+        errorMessage = 'Syötä kelvollinen puhelinnumero';
+      }
+    }
+
+    if (field.name === 'message' && field.value.trim().length < 10) {
+      isValid = false;
+      errorMessage = 'Viestin tulee olla vähintään 10 merkkiä pitkä';
+    }
+  }
+
+  if (!isValid) {
+    showError(field.id, errorMessage);
+  } else {
+    setStatus(field.id, 'valid');
+  }
+
+  return isValid;
+}
+
+function showError(fieldId, message) {
+  const field = document.getElementById(fieldId);
+  const errorElement = document.getElementById(fieldId + 'Error');
+  const statusElement = document.getElementById(fieldId + 'Status');
+
+  if (errorElement) {
+    errorElement.textContent = message;
+    errorElement.classList.add('show');
+  }
+
+  if (statusElement) {
+    statusElement.textContent = '❌';
+    statusElement.classList.remove('valid');
+    statusElement.classList.add('invalid');
+  }
+
+  if (field) {
+    const wrapper = field.closest('.input-wrapper, .textarea-wrapper');
+    if (wrapper) {
+      wrapper.style.borderColor = '#dc3545';
+    }
+  }
+}
+
+function clearError(fieldId) {
+  const errorElement = document.getElementById(fieldId + 'Error');
+  const statusElement = document.getElementById(fieldId + 'Status');
+
+  if (errorElement) {
+    errorElement.textContent = '';
+    errorElement.classList.remove('show');
+  }
+
+  if (statusElement) {
+    statusElement.classList.remove('invalid');
+  }
+
+  const field = document.getElementById(fieldId);
+  if (field) {
+    const wrapper = field.closest('.input-wrapper, .textarea-wrapper');
+    if (wrapper) {
+      wrapper.style.borderColor = '#e9ecef';
+    }
+  }
+}
+
+function setStatus(fieldId, status) {
+  const field = document.getElementById(fieldId);
+  const statusElement = document.getElementById(fieldId + 'Status');
+  const errorElement = document.getElementById(fieldId + 'Error');
+
+  if (statusElement) {
+    if (status === 'valid') {
+      statusElement.textContent = '✅';
+      statusElement.classList.add('valid');
+      statusElement.classList.remove('invalid');
+    }
+  }
+
+  if (errorElement) {
+    errorElement.classList.remove('show');
+  }
+
+  if (field) {
+    const wrapper = field.closest('.input-wrapper, .textarea-wrapper');
+    if (wrapper) {
+      if (status === 'valid') {
+        wrapper.style.borderColor = '#e9ecef';
+      }
+    }
+  }
+}
+
+function clearStatus(fieldId) {
+  const statusElement = document.getElementById(fieldId + 'Status');
+  if (statusElement) {
+    statusElement.textContent = '';
+    statusElement.classList.remove('valid', 'invalid');
+  }
+}
+
+function updateProgress() {
+  const form = document.getElementById('contactForm');
+  const requiredFields = form.querySelectorAll('[required]');
+  const gdprCheckbox = document.getElementById('gdpr');
+  const progressBar = document.getElementById('progressBar');
+
+  let filledFields = 0;
+
+  requiredFields.forEach(field => {
+    if (field.type === 'checkbox') {
+      if (field.checked) filledFields++;
+    } else if (field.value.trim() !== '') {
+      filledFields++;
+    }
+  });
+
+  // Add GDPR checkbox
+  if (gdprCheckbox && gdprCheckbox.checked) {
+    filledFields++;
+  }
+
+  const totalFields = requiredFields.length + 1; // +1 for GDPR
+  const progress = (filledFields / totalFields) * 100;
+
+  if (progressBar) {
+    progressBar.style.width = progress + '%';
+  }
+}
