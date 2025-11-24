@@ -202,23 +202,37 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   if (closeModal) {
-    closeModal.addEventListener('click', closeModalFunc);
+    closeModal.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeModalFunc();
+    });
   }
   
   if (prevBtn) {
-    prevBtn.addEventListener('click', showPrevImage);
+    prevBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showPrevImage();
+    });
   }
   
   if (nextBtn) {
-    nextBtn.addEventListener('click', showNextImage);
+    nextBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showNextImage();
+    });
   }
   
-  // Close modal when clicking outside the image
+  // Prevent image click from closing modal
+  if (modalImage) {
+    modalImage.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  }
+  
+  // Close modal when clicking on the background
   if (modal) {
     modal.addEventListener('click', function(e) {
-      if (e.target === modal) {
-        closeModalFunc();
-      }
+      closeModalFunc();
     });
   }
   
