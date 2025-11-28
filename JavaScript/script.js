@@ -503,7 +503,7 @@ function validateField(field) {
   if (!isValid) {
     showError(field.id, errorMessage);
   } else {
-    setStatus(field.id, 'valid');
+    clearError(field.id);
   }
 
   return isValid;
@@ -543,7 +543,8 @@ function clearError(fieldId) {
   }
 
   if (statusElement) {
-    statusElement.classList.remove('invalid');
+    statusElement.textContent = '';
+    statusElement.classList.remove('invalid', 'valid');
   }
 
   const field = document.getElementById(fieldId);
@@ -562,7 +563,7 @@ function setStatus(fieldId, status) {
 
   if (statusElement) {
     if (status === 'valid') {
-      statusElement.textContent = '✅';
+      statusElement.textContent = '';
       statusElement.classList.add('valid');
       statusElement.classList.remove('invalid');
     }
