@@ -28,6 +28,8 @@
     />
     <link rel="stylesheet" href="./CSS/style.css" />
     <link rel="stylesheet" href="./CSS/reset.css" />
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script defer src="./JavaScript/script.js"></script>
     <script type="application/ld+json">
     {
@@ -264,12 +266,8 @@
         <br>
         <br>
         <div class="form-card">
-          <form id="contactForm" class="modern-form"
-            action="https://formsubmit.co/info.etputki@gmail.com"
-            method="POST"
-          >
-            <input type="hidden" name="_subject" value="Sähköpostia asiakkaalta!" />
-            <input type="hidden" name="_captcha" value="false" />
+          <form id="contactForm" class="modern-form">
+            <!-- EmailJS will handle form submission -->
             
             <!-- Progress Bar -->
             <div class="form-progress">
@@ -408,8 +406,6 @@
                 <span class="btn-spinner" id="btnSpinner"></span>
               </button>
             </div>
-
-            <input type="hidden" name="_next" value="https://etputki.fi/thank_you.html" />
           </form>
 
           <!-- Success Message -->

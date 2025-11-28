@@ -315,12 +315,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Modern Form Handler
+  // Modern Form Handler with EmailJS
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     initializeModernForm();
+    initializeEmailJS();
   }
 });
+
+// Initialize EmailJS
+function initializeEmailJS() {
+  // Initialize EmailJS with your public key
+  // You need to replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+  emailjs.init('yoW4TRKQG3tzOcdQ9');
+}
 
 // Modern Form Functions
 function initializeModernForm() {
@@ -356,7 +364,7 @@ function initializeModernForm() {
     });
   });
 
-  // Form submission
+  // Form submission with EmailJS
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -383,10 +391,8 @@ function initializeModernForm() {
     submitBtn.classList.add('loading');
     submitBtn.disabled = true;
 
-    // Submit form
-    setTimeout(() => {
-      form.submit();
-    }, 500);
+    // Send email using EmailJS
+    sendEmail(form, submitBtn);
   });
 
   // Validate on GDPR checkbox change
@@ -398,6 +404,59 @@ function initializeModernForm() {
       }
     });
   }
+}
+
+// Send email using EmailJS
+function sendEmail(form, submitBtn) {
+  // Replace these with your EmailJS service ID and template ID
+  const serviceID = 'service_yzdjwob';
+  const templateID = 'template_4vxbn27';
+
+  // Prepare template parameters
+  const templateParams = {
+    from_name: form.name.value,
+    from_email: form.email.value,
+    phone: form.phone.value,
+    address: form.address.value || 'Ei annettu',
+    service: form.service.value || 'Ei valittu',
+    message: form.message.value,
+    to_email: 'jan.kokkonen1@gmail.com'
+  };
+
+  emailjs.send(serviceID, templateID, templateParams)
+    .then(function(response) {
+      console.log('SUCCESS!', response.status, response.text);
+      
+      // Hide form and show success message
+      form.style.display = 'none';
+      const successMessage = document.getElementById('successMessage');
+      if (successMessage) {
+        successMessage.style.display = 'block';
+      }
+
+      // Reset form after delay
+      setTimeout(() => {
+        form.reset();
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        updateProgress();
+        
+        // Optional: redirect to thank you page after 3 seconds
+        setTimeout(() => {
+          window.location.href = './thank_you.html';
+        }, 3000);
+      }, 2000);
+
+    }, function(error) {
+      console.log('FAILED...', error);
+      
+      // Show error message
+      alert('Viestin lähetys epäonnistui. Yritä uudelleen tai soita meille suoraan: 0400 819101');
+      
+      // Reset button state
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    });
 }
 
 function validateField(field) {
