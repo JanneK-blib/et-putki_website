@@ -1,41 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="robots" content="noindex, nofollow">
+    <title>Kiitos yhteydenotosta | ET-Putki</title>
+    <link rel="icon" href="./images/icon.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/thanks.css">
     <link rel="stylesheet" href="./CSS/reset.css">
-    <script src="https://kit.fontawesome.com/aaeb60e46a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />  
     <script defer src="./JavaScript/script.js"></script>
 </head>
 <body>
-    <div class="intro">
-        <h1 class="logo-header">
-            <span><img src="./images/ET-putki-logo.png" class="intro-logo" alt=""></span>
-        </h1>
-    </div>
-
     <header>
         <div class="navbar">
-        <img class="logo" src="./images/ET-putki-logo.png" alt="putkimies espoo">
+        <img class="logo" src="./images/ET-putki-logo.png" alt="ET-Putki putkimies Espoo Helsinki Vantaa LVI-palvelut">
         
             <nav>
                 <ul class="nav-menu">
                     <li class="nav-link">
-                        <a href="#lvi-palvelut">Lvi-palvelut</a>
+                        <a href="./index.html#lvi-palvelut">Lvi-palvelut</a>
                     </li>
                     <li class="nav-link">
-                        <a href="#tietoa-meista">Tietoa meistä</a>
+                        <a href="./index.html#tietoa-meista">Tietoa meistä</a>
                     </li>
                     <li class="nav-link">
                         <a href="./galleria.html">Galleria</a>
                     </li>
                     <li class="nav-link">
-                        <a href="#contact-us">Ota yhteyttä</a>
+                        <a href="./index.html#contact-us">Ota yhteyttä</a>
                     </li>
                     <li class="nav-link phone-contact">
                         <a href="tel:+358400819101">
@@ -55,11 +52,34 @@
     </div>
     </header>
 
-    <section class="container">
-        <article class="thank-you-message">
-            <p class="thanks-title">Kiitos viestistäsi! <br> <br> Olemme sinuun yhteydessä mahdollisimman pian!</p>
-            <a href="./index.html"><button class="contact-btn">Etusivulle</button></a>
-        </article>
+    <section class="thank-you-container">
+        <div class="thank-you-content">
+            <div class="success-icon-large">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <h1 class="thank-you-title">Kiitos yhteydenotostasi!</h1>
+            <p class="thank-you-text">
+                Olemme vastaanottaneet viestisi ja otamme sinuun yhteyttä 
+                <strong>mahdollisimman pian</strong>, yleensä 1-2 tunnin sisällä arkisin.
+            </p>
+            
+            <div class="contact-info-box">
+                <h2>Kiireellisessä asiassa?</h2>
+                <p>Voit myös soittaa meille suoraan:</p>
+                <a href="tel:+358400819101" class="phone-number">
+                    <span class="material-symbols-outlined">call</span>
+                    0400 819 101
+                </a>
+                <p class="business-hours">Ma-Pe 8:00-17:00</p>
+            </div>
+
+            <div class="action-buttons">
+                <a href="./index.html" class="contact-btn primary">← Takaisin etusivulle</a>
+                <a href="./galleria.html" class="contact-btn secondary">Tutustu galleriaan</a>
+            </div>
+        </div>
     </section>
 
     <footer id="footer">
@@ -74,6 +94,9 @@
               <li>Y-tunnus: 2991302-2</li>
               <li class="laskutustiedot">
                 <a href="./laskutus.html">laskutustiedot</a>
+              </li>
+              <li class="privacy-link">
+                <a href="./privacy.html">tietosuojaseloste</a>
               </li>
             </ul>
             <div class="footerimgs">

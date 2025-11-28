@@ -1,46 +1,250 @@
-.container {
-    width: 300px;
-    height: 300px;
-    margin: auto; 
-    height: 100vh;
-}
-
-.thank-you-message {
-    background-color: #019FE3;
+/* Thank You Page Styles */
+.thank-you-container {
+    min-height: calc(100vh - 200px);
     display: flex;
-    flex-direction: column;
-    position: relative;
-    top: 40%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    padding: 50px 30px;
-    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 60px;
 }
 
-.thank-you-message a {
+.thank-you-content {
+    max-width: 700px;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    padding: 60px 40px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.15);
     text-align: center;
-    color: #1C1C1B;
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Success Icon */
+.success-icon-large {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s ease 0.2s both;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.success-icon-large svg {
+    width: 45px;
+    height: 45px;
+    color: white;
+    stroke-width: 3;
+}
+
+/* Title and Text */
+.thank-you-title {
+    font-size: 2.2rem;
+    color: #1a3a52;
+    margin-bottom: 20px;
+    font-weight: 700;
+    animation: fadeIn 0.6s ease 0.3s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.thank-you-text {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    animation: fadeIn 0.6s ease 0.4s both;
+}
+
+.thank-you-text strong {
+    color: #ff6b35;
+    font-weight: 600;
+}
+
+/* Contact Info Box */
+.contact-info-box {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    animation: fadeIn 0.6s ease 0.5s both;
+}
+
+.contact-info-box h2 {
+    font-size: 1.4rem;
+    color: #1a3a52;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.contact-info-box > p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.phone-number {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff6b35;
     text-decoration: none;
+    margin: 15px 0;
+    transition: all 0.3s ease;
 }
 
-.thanks-title {
-    font-weight: 300;
-    line-height: 25px;
-    font-size: 20px;
-    text-align: center;
+.phone-number:hover {
+    color: #e55a2b;
+    transform: scale(1.05);
+}
+
+.phone-number .material-symbols-outlined {
+    font-size: 2rem;
+    color: #ff6b35;
+}
+
+.business-hours {
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeIn 0.6s ease 0.6s both;
+}
+
+.action-buttons .contact-btn {
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.action-buttons .contact-btn.primary {
+    background: rgb(174, 60, 89);
     color: white;
-    opacity: 1;
-    text-shadow: 1px 3px 8px rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 15px rgba(174, 60, 89, 0.3);
 }
 
-.contact-btn {
-    background-color: #B33951;
-    margin: 50px 0 10px;
-    font-weight: lighter;
+.action-buttons .contact-btn.primary:hover {
+    background: rgb(154, 40, 69);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(174, 60, 89, 0.4);
+}
+
+.action-buttons .contact-btn.secondary {
+    background: white;
+    color: #1a3a52;
+    border: 2px solid #1a3a52;
+}
+
+.action-buttons .contact-btn.secondary:hover {
+    background: #1a3a52;
     color: white;
-    letter-spacing: 1.5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transform: translateY(-2px);
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .thank-you-container {
+        padding: 100px 15px 40px;
+    }
+
+    .thank-you-content {
+        padding: 40px 25px;
+    }
+
+    .thank-you-title {
+        font-size: 1.8rem;
+    }
+
+    .thank-you-text {
+        font-size: 1rem;
+    }
+
+    .phone-number {
+        font-size: 1.5rem;
+    }
+
+    .contact-info-box {
+        padding: 25px 20px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons .contact-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .success-icon-large {
+        width: 70px;
+        height: 70px;
+    }
+
+    .success-icon-large svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .thank-you-title {
+        font-size: 1.6rem;
+    }
+
+    .thank-you-text {
+        font-size: 0.95rem;
+    }
+
+    .phone-number {
+        font-size: 1.3rem;
+    }
+
+    .contact-info-box h2 {
+        font-size: 1.2rem;
+    }
+}
 
 

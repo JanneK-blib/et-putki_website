@@ -427,25 +427,8 @@ function sendEmail(form, submitBtn) {
     .then(function(response) {
       console.log('SUCCESS!', response.status, response.text);
       
-      // Hide form and show success message
-      form.style.display = 'none';
-      const successMessage = document.getElementById('successMessage');
-      if (successMessage) {
-        successMessage.style.display = 'block';
-      }
-
-      // Reset form after delay
-      setTimeout(() => {
-        form.reset();
-        submitBtn.classList.remove('loading');
-        submitBtn.disabled = false;
-        updateProgress();
-        
-        // Optional: redirect to thank you page after 3 seconds
-        setTimeout(() => {
-          window.location.href = './thank_you.html';
-        }, 3000);
-      }, 2000);
+      // Redirect immediately to thank you page
+      window.location.href = './thank_you.html';
 
     }, function(error) {
       console.log('FAILED...', error);
