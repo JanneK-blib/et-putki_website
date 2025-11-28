@@ -1798,3 +1798,27 @@ footer li {
     font-size: 0.95rem;
   }
 }
+
+/* Privacy Link in Form */
+.privacy-link-inline {
+  color: #ff6b35;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.privacy-link-inline:hover {
+  color: #e55a2b;
+  text-decoration: underline;
+}
+
+/* Footer Privacy Link */
+.privacy-link a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.privacy-link a:hover {
+  color: #ff6b35;
+}
