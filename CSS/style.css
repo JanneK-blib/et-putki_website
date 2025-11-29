@@ -31,6 +31,7 @@ body {
   background-size: cover;
   background-position: center top;
   background-attachment: fixed;
+  transition: background-position 0.1s ease-out;
 }
 
 /* Mobile background with parallax effect */
@@ -39,13 +40,7 @@ body {
     background-attachment: scroll;
     background-size: 110%;
     background-position: center 0;
-    animation: parallaxMobile 0.1s ease-out;
-  }
-  
-  @keyframes parallaxMobile {
-    to {
-      background-position: center calc(var(--scroll) * 0.5px);
-    }
+    will-change: background-position;
   }
 }
 

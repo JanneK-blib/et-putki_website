@@ -44,20 +44,32 @@ document.querySelectorAll('.nav-link a').forEach(function(link) {
     });
 });
 
+// Parallax effect optimization
+let ticking = false;
+let lastScrollY = 0;
+
+function updateParallax() {
+  if (window.innerWidth <= 768) {
+    document.body.style.backgroundPositionY = (lastScrollY * 0.5) + 'px';
+  }
+  ticking = false;
+}
+
 window.addEventListener('scroll', function() {
-  var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+  lastScrollY = window.scrollY || document.documentElement.scrollTop;
   var toPageUp = document.getElementById('toPageUp');
   var footerPosition = document.getElementById('footer').getBoundingClientRect().top;
   var navbar = document.querySelector('.navbar');
 
-  // Parallax effect for mobile background
-  if (window.innerWidth <= 768) {
-    document.body.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
+  // Parallax effect for mobile background (optimized with requestAnimationFrame)
+  if (!ticking && window.innerWidth <= 768) {
+    window.requestAnimationFrame(updateParallax);
+    ticking = true;
   }
 
   // Modern navbar scroll effect (desktop only)
   if (window.innerWidth >= 651 && navbar) {
-    if (scrollPosition > 100) {
+    if (lastScrollY > 100) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
@@ -65,7 +77,7 @@ window.addEventListener('scroll', function() {
   }
 
   if (toPageUp) {
-    if (scrollPosition > (0.5 * document.documentElement.clientHeight)) {
+    if (lastScrollY > (0.5 * document.documentElement.clientHeight)) {
       toPageUp.classList.add('show'); 
     } else {
       toPageUp.classList.remove('show');
@@ -281,8 +293,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Intersection Observer for scroll animations
   if ('IntersectionObserver' in window) {
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.05,
+      rootMargin: '0px 0px 200px 0px'
     };
     
     const observer = new IntersectionObserver(function(entries) {
@@ -298,7 +310,7 @@ document.addEventListener('DOMContentLoaded', function() {
     galleryItems.forEach((item, index) => {
       item.style.opacity = '0';
       item.style.transform = 'translateY(30px)';
-      item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+      item.style.transition = `opacity 0.3s ease ${index * 0.03}s, transform 0.3s ease ${index * 0.03}s`;
       observer.observe(item);
     });
   }
