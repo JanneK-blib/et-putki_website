@@ -1854,3 +1854,86 @@ footer li {
   color: #ff6b35;
   text-decoration: underline;
 }
+
+/* Pricing Section */
+.pricing-section {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 50px 20px;
+  background: rgba(0, 0, 0, 0.85);
+  text-align: center;
+}
+
+.pricing-container {
+  color: white;
+}
+
+.pricing-container h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.pricing-table {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.pricing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pricing-row:last-child {
+  border-bottom: none;
+}
+
+.pricing-time {
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+}
+
+.pricing-rate {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ff5a73;
+  white-space: nowrap;
+}
+
+.pricing-note {
+  font-size: 0.9rem;
+  color: white;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .pricing-section {
+    margin: 30px auto;
+    padding: 30px 15px;
+  }
+
+  .pricing-table {
+    padding: 1rem;
+  }
+
+  .pricing-row {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .pricing-time,
+  .pricing-rate {
+    text-align: center;
+  }
+}
