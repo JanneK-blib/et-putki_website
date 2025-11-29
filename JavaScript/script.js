@@ -437,7 +437,7 @@ function sendEmail(form, submitBtn) {
     address: form.address.value || 'Ei annettu',
     service: form.service.value || 'Ei valittu',
     message: form.message.value,
-    to_email: 'jan.kokkonen1@gmail.com'
+    to_email: 'info.etputki@gmail.com'
   };
 
   emailjs.send(serviceID, templateID, templateParams)
