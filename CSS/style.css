@@ -1077,6 +1077,17 @@ h3 {
   .success-content h3 {
     font-size: 1.3rem;
   }
+
+  .checkbox-label {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .checkbox-custom {
+    margin-top: 2px;
+  }
 }
 
 
@@ -1706,9 +1717,9 @@ footer li {
 
 .stats-row {
   display: flex;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
@@ -1821,10 +1832,11 @@ footer li {
 /* Footer Privacy Link */
 .privacy-link a {
   color: #bbb;
-  text-decoration: none;
+  text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 .privacy-link a:hover {
   color: #ff6b35;
+  text-decoration: underline;
 }
