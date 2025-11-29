@@ -50,6 +50,11 @@ window.addEventListener('scroll', function() {
   var footerPosition = document.getElementById('footer').getBoundingClientRect().top;
   var navbar = document.querySelector('.navbar');
 
+  // Parallax effect for mobile background
+  if (window.innerWidth <= 768) {
+    document.body.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
+  }
+
   // Modern navbar scroll effect (desktop only)
   if (window.innerWidth >= 651 && navbar) {
     if (scrollPosition > 100) {

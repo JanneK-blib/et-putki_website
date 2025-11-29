@@ -8,12 +8,18 @@
 
 html,
 body {
-  background-color: white;
+  background-color: #000;
   font-family: "Raleway", Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #bbb;
-  /* background: rgb(45, 66, 99); */
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+body {
   background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 1) 20%,
@@ -23,11 +29,24 @@ body {
     url("/images/taustakuva1.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center top;
   background-attachment: fixed;
-  scroll-behavior: smooth;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+}
+
+/* Mobile background with parallax effect */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-size: 110%;
+    background-position: center 0;
+    animation: parallaxMobile 0.1s ease-out;
+  }
+  
+  @keyframes parallaxMobile {
+    to {
+      background-position: center calc(var(--scroll) * 0.5px);
+    }
+  }
 }
 
 p {
