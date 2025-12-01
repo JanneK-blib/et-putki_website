@@ -47,14 +47,15 @@ document.querySelectorAll('.nav-link a').forEach(function(link) {
     });
 });
 
-// Parallax effect optimization
+// Background zoom parallax effect optimization
 let ticking = false;
 let lastScrollY = 0;
 
-function updateParallax() {
-  if (window.innerWidth <= 768) {
-    document.body.style.backgroundPositionY = (lastScrollY * 0.5) + 'px';
-  }
+function updateBackgroundZoom() {
+  const scrollPercent = lastScrollY / (document.documentElement.scrollHeight - window.innerHeight);
+  // Zoom from 100% to 110% based on scroll position
+  const scale = 1 + (scrollPercent * 0.1);
+  document.documentElement.style.backgroundSize = `${scale * 100}%`;
   ticking = false;
 }
 
@@ -64,9 +65,9 @@ window.addEventListener('scroll', function() {
   var footerPosition = document.getElementById('footer').getBoundingClientRect().top;
   var navbar = document.querySelector('.navbar');
 
-  // Parallax effect for mobile background (optimized with requestAnimationFrame)
-  if (!ticking && window.innerWidth <= 768) {
-    window.requestAnimationFrame(updateParallax);
+  // Background zoom effect (optimized with requestAnimationFrame)
+  if (!ticking) {
+    window.requestAnimationFrame(updateBackgroundZoom);
     ticking = true;
   }
 
@@ -593,6 +594,45 @@ function clearStatus(fieldId) {
     statusElement.classList.remove('valid', 'invalid');
   }
 }
+
+// Scroll animation for box-row elements on mobile
+function initScrollAnimations() {
+  if (window.innerWidth <= 650) {
+    const boxRows = document.querySelectorAll('.box-row');
+    
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    boxRows.forEach(box => {
+      observer.observe(box);
+    });
+  }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
+// Reinitialize on window resize if needed
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    if (window.innerWidth <= 650) {
+      initScrollAnimations();
+    }
+  }, 250);
+});
 
 function updateProgress() {
   const form = document.getElementById('contactForm');
