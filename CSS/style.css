@@ -414,7 +414,7 @@ h3 {
   text-align: center;
   color: white;
   padding: 1.875rem;
-  font-size: 1.125rem;
+  font-size: 1rem;
   opacity: 0.9;
   line-height: 1.7;
 }
@@ -426,7 +426,7 @@ h3 {
 
 .contact-btn {
   color: white;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.5px;
   padding: 1.25rem 1.875rem;
@@ -455,7 +455,9 @@ h3 {
 }
 
 .box-row {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
+  margin-bottom: 2rem;
+  border-radius: 8px;
 }
 
 #tietoa-meista {
@@ -472,27 +474,27 @@ h3 {
 
 .boxText {
   color: white;
-  padding: 50px;
+  padding: 3rem;
   align-items: center;
 }
 
 .boxText h1 {
   text-align: start;
-  padding: 1.25rem;
-  font-size: 1.75rem;
-  font-weight: 600;
+  padding: 0 0 1rem 0;
+  font-size: 2rem;
+  font-weight: 700;
   color: white;
-  opacity: 0.9;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid rgba(179, 57, 81, 0.5);
+  display: inline-block;
 }
 
 .boxText p {
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;
   letter-spacing: 0.3px;
   color: white;
-  opacity: 0.9;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 /*lomake*/
@@ -1857,10 +1859,11 @@ footer li {
 
 /* Pricing Section */
 .pricing-section {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 50px 20px;
-  background: rgba(0, 0, 0, 0.85);
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 3rem 2rem;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
   text-align: center;
 }
 
@@ -1870,49 +1873,64 @@ footer li {
 
 .pricing-container h1 {
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 700;
   color: white;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid rgba(179, 57, 81, 0.5);
+  display: inline-block;
 }
 
 .pricing-table {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto 2rem;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  padding: 1.5rem;
+  background: rgba(20, 30, 40, 0.6);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .pricing-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  margin-bottom: 0.75rem;
+  border-radius: 6px;
 }
 
 .pricing-row:last-child {
   border-bottom: none;
+  margin-bottom: 0;
+}
+
+.pricing-row.special {
+  background: rgba(179, 57, 81, 0.15);
+  border: 1px solid rgba(179, 57, 81, 0.3);
+  margin-top: 1.5rem;
 }
 
 .pricing-time {
   font-size: 1rem;
   color: white;
   text-align: left;
+  font-weight: 500;
 }
 
 .pricing-rate {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #ff5a73;
   white-space: nowrap;
 }
 
 .pricing-note {
   font-size: 0.9rem;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   margin-top: 10px;
-  font-style: italic;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
