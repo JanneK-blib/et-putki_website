@@ -1,3 +1,6 @@
+# ET-Putki robots.txt
+# https://etputki.fi
+
 User-agent: *
 Allow: /
 
@@ -8,10 +11,13 @@ Sitemap: https://etputki.fi/sitemap.xml
 Allow: /index.html
 Allow: /galleria.html
 Allow: /laskutus.html
-Allow: /thank_you.html
-Allow: /CSS/
+Allow: /privacy.html
 Allow: /images/
-Allow: /JavaScript/
 
-# Prevent crawling of form submission endpoints
-Disallow: /thank_you.html?*
+# Prevent crawling of utility pages
+Disallow: /thank_you.html
+Disallow: /config/
+
+# Allow search engines to find CSS and JS for rendering
+Allow: /CSS/
+Allow: /JavaScript/

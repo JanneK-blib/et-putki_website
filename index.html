@@ -11,6 +11,11 @@
     content="putkimies espoo, putkimies helsinki, putkimies vantaa, putkimies kirkkonummi, LVI-palvelut, vesivuoto korjaus, viemärihuolto, hätäputkimies, putkikorjaus, hanavaihto, wc-istuin vaihto, lämminvesivaraaja, lämmityshuolto, putkiliike, LVI-asennus, vesikalustehuolto, viemärin avaus, putkimies tapiola" />
   <meta name="author" content="ET-Putki" />
   <meta name="robots" content="index, follow" />
+  <!-- Geo tags for local SEO -->
+  <meta name="geo.region" content="FI-18" />
+  <meta name="geo.placename" content="Kirkkonummi" />
+  <meta name="geo.position" content="60.1198;24.4397" />
+  <meta name="ICBM" content="60.1198, 24.4397" />
   <meta property="og:title" content="Putkimies Espoo Helsinki Vantaa | LVI-palvelut | ET-Putki" />
   <meta property="og:description"
     content="Ammattitaitoinen putkimies palvelut Espoo, Helsinki, Vantaa. Vesivuotokorjaukset, viemärihuolto, LVI-työt. Luotettava ja nopea palvelu." />
@@ -19,6 +24,14 @@
   <meta property="og:image" content="https://etputki.fi/images/ET-putki-logo.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fi_FI" />
+  <meta property="og:site_name" content="ET-Putki" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Putkimies Espoo Helsinki Vantaa | ET-Putki" />
+  <meta name="twitter:description"
+    content="Ammattitaitoinen putkimies palvelu. Vesivuotokorjaukset, viemärihuolto, LVI-työt. Soita 0400 819101" />
+  <meta name="twitter:image" content="https://etputki.fi/images/ET-putki-logo.png" />
   <link rel="canonical" href="https://etputki.fi/" />
   <title>ET-Putki | Putkimies Espoo Helsinki Vantaa Kirkkonummi | LVI-palvelut</title>
   <link rel="icon" href="./images/icon.png" type="image/x-icon" />
@@ -36,49 +49,128 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "PlumbingService",
-      "name": "ET-Putki",
-      "description": "Luotettava putkimies palvelu Espoo, Helsinki, Vantaa. LVI-palvelut, vesivuotokorjaukset, viemärihuolto.",
-      "url": "https://etputki.fi",
-      "telephone": "+358400819101",
-      "email": "info.etputki@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Ojangonkaari 6",
-        "addressLocality": "Kirkkonummi",
-        "postalCode": "02480",
-        "addressCountry": "FI"
-      },
-      "areaServed": [
+      "@graph": [
         {
-          "@type": "City",
-          "name": "Espoo"
+          "@type": "LocalBusiness",
+          "@id": "https://etputki.fi/#organization",
+          "name": "ET-Putki",
+          "alternateName": "E.T Putki",
+          "description": "Luotettava putkimies palvelu Espoo, Helsinki, Vantaa ja Kirkkonummi. Ammattitaitoiset LVI-palvelut, vesivuotokorjaukset, viemärihuolto ja putkiasennukset.",
+          "url": "https://etputki.fi",
+          "telephone": "+358400819101",
+          "email": "info.etputki@gmail.com",
+          "image": "https://etputki.fi/images/ET-putki-logo.png",
+          "logo": "https://etputki.fi/images/ET-putki-logo.png",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Ojangonkaari 6",
+            "addressLocality": "Kirkkonummi",
+            "postalCode": "02480",
+            "addressRegion": "Uusimaa",
+            "addressCountry": "FI"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 60.1198,
+            "longitude": 24.4397
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "08:00",
+              "closes": "17:00"
+            }
+          ],
+          "priceRange": "$$",
+          "currenciesAccepted": "EUR",
+          "paymentAccepted": "Lasku, Käteinen, Korttimaksu"
         },
         {
-          "@type": "City", 
-          "name": "Helsinki"
+          "@type": "PlumbingService",
+          "@id": "https://etputki.fi/#service",
+          "name": "ET-Putki LVI-palvelut",
+          "provider": {"@id": "https://etputki.fi/#organization"},
+          "areaServed": [
+            {"@type": "City", "name": "Espoo"},
+            {"@type": "City", "name": "Helsinki"},
+            {"@type": "City", "name": "Vantaa"},
+            {"@type": "City", "name": "Kirkkonummi"},
+            {"@type": "City", "name": "Kauniainen"}
+          ],
+          "serviceType": [
+            "Putkimies",
+            "Putkikorjaus",
+            "Vesivuotokorjaus",
+            "Viemärihuolto",
+            "Viemärin avaus",
+            "Viemärin kuvaus",
+            "LVI-asennus",
+            "Hanavaihto",
+            "WC-istuimen vaihto",
+            "Lämminvesivaraajan huolto",
+            "Lämmityshuolto",
+            "Kylpyhuoneremontti",
+            "Vesikalusteasennus"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Putkimiespalvelut",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Putkimiespalvelu arkisin"
+                },
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "65.00",
+                  "priceCurrency": "EUR",
+                  "unitText": "tunti"
+                }
+              }
+            ]
+          }
         },
         {
-          "@type": "City",
-          "name": "Vantaa"
-        },
-        {
-          "@type": "City",
-          "name": "Kirkkonummi"
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Kuinka nopeasti putkimies tulee paikalle?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Normaalisti pääsemme paikalle saman päivän aikana arkisin. Kiireellisissä tapauksissa, kuten vesivuodoissa, pyrimme olemaan paikalla mahdollisimman pian. Soita meille: 0400 819101."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Paljonko putkimiehen käynti maksaa Espoossa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arkisin klo 8-17 veloitamme 65€/h (sis. alv 25,5%). Arkisin klo 17 jälkeen ja lauantaisin 130€/h. Sunnuntaisin ja pyhinä 195€/h. Huoltoauton käynti alkaa 30€."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Millä alueilla putkimies toimii?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Palvelemme pääkaupunkiseudulla: Espoo (Tapiola, Leppävaara, Matinkylä), Helsinki, Vantaa ja Kirkkonummi sekä niiden lähialueet Uudellamaalla."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Mitä LVI-palveluita tarjoatte?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tarjoamme kaikki LVI-palvelut: vesivuotokorjaukset, viemärihuolto ja -avaus, hanavaihto, WC-istuimen asennus, lämminvesivaraajan huolto, lämmityshuolto sekä kylpyhuoneremontit."
+              }
+            }
+          ]
         }
-      ],
-      "serviceType": [
-        "Putkikorjaus",
-        "Vesivuotokorjaus", 
-        "Viemärihuolto",
-        "LVI-asennus",
-        "Hanavaihto",
-        "WC-istuimen vaihto",
-        "Lämminvesivaraajan huolto",
-        "Lämmityshuolto"
-      ],
-      "priceRange": "$$",
-      "hasCredential": "Luotettava kumppani -sertifikaatti"
+      ]
     }
     </script>
 </head>
