@@ -8,7 +8,7 @@ const EMAILJS_CONFIG = {
     publicKey: 'yoW4TRKQG3tzOcdQ9',
     serviceId: 'service_yzdjwob',
     templateId: 'template_4vxbn27',
-    toEmail: 'info.etputki@gmail.com'
+    toEmail: 'info.etputki@gmail.com, jan.kokkonen1@gmail.com'
 };
 
 // Make config available globally
