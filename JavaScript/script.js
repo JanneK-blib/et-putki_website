@@ -62,7 +62,7 @@ function updateBackgroundZoom() {
 window.addEventListener('scroll', function () {
   lastScrollY = window.scrollY || document.documentElement.scrollTop;
   var toPageUp = document.getElementById('toPageUp');
-  var footerPosition = document.getElementById('footer').getBoundingClientRect().top;
+  var footerElement = document.getElementById('footer');
   var navbar = document.querySelector('.navbar');
 
   // Background zoom effect (optimized with requestAnimationFrame)
@@ -87,10 +87,13 @@ window.addEventListener('scroll', function () {
       toPageUp.classList.remove('show');
     }
 
-    if (footerPosition <= document.documentElement.clientHeight) {
-      toPageUp.classList.add('hide');
-    } else {
-      toPageUp.classList.remove('hide');
+    if (footerElement) {
+      var footerPosition = footerElement.getBoundingClientRect().top;
+      if (footerPosition <= document.documentElement.clientHeight) {
+        toPageUp.classList.add('hide');
+      } else {
+        toPageUp.classList.remove('hide');
+      }
     }
   }
 });
