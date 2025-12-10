@@ -3,11 +3,11 @@ html {
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 900,
-  'GRAD' 0,
-  'opsz' 10
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 900,
+        'GRAD' 0,
+        'opsz' 10
 }
 
 /* Breadcrumb Navigation */
@@ -57,10 +57,10 @@ html {
 /* Hero Section */
 .galleria-hero {
     background: linear-gradient(135deg, rgba(0, 158, 227, 0.9) 0%, rgba(179, 57, 81, 0.9) 100%),
-                url('../images/taustakuva1.jpeg');
+        url('../images/taustakuva1.jpeg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    /* Removed background-attachment: fixed - causes scroll stuttering */
     padding: 120px 0 80px;
     text-align: center;
     position: relative;
@@ -210,16 +210,30 @@ html {
 
 .galleria-item {
     opacity: 1;
-    transform: scale(1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+    /* GPU acceleration */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: opacity, transform;
+    backface-visibility: hidden;
 }
 
 .galleria-item.hidden {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.8) translateZ(0);
     pointer-events: none;
     position: absolute;
     visibility: hidden;
+}
+
+/* Scroll animation classes - GPU accelerated */
+.galleria-item.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px) translateZ(0);
+}
+
+.galleria-item.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
 }
 
 .galleria-card {
@@ -227,17 +241,21 @@ html {
     border-radius: 20px;
     overflow: hidden;
     background: white;
-    box-shadow: 
+    box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.1),
         0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     height: 400px;
+    will-change: transform;
+    transform: translateZ(0);
+    /* GPU acceleration */
+    backface-visibility: hidden;
 }
 
 .galleria-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 
+    transform: translateY(-10px) scale(1.02) translateZ(0);
+    box-shadow:
         0 25px 50px rgba(0, 0, 0, 0.15),
         0 10px 30px rgba(0, 158, 227, 0.1);
 }
@@ -246,11 +264,13 @@ html {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.4s ease;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .galleria-card:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05) translateZ(0);
 }
 
 .card-overlay {
@@ -259,12 +279,10 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.8) 0%,
-        rgba(0, 0, 0, 0.4) 50%,
-        transparent 100%
-    );
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.4) 50%,
+            transparent 100%);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
@@ -444,8 +462,13 @@ html {
 }
 
 @keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 /* Image Loading Effect */
@@ -460,8 +483,13 @@ html {
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInUp {
@@ -469,6 +497,7 @@ html {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -480,6 +509,7 @@ html {
         opacity: 0;
         transform: scale(0.8);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -488,15 +518,17 @@ html {
 
 @keyframes floatEffect {
     0% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
+
     50% {
-      transform: translateY(-10px);
+        transform: translateY(-10px);
     }
+
     100% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
-  }
+}
 
 #toPageUp {
     position: fixed;
@@ -543,82 +575,80 @@ html {
         padding: 0 15px;
         font-size: 0.8rem;
     }
-    
+
     .breadcrumb .separator {
         margin: 0 8px;
     }
-    
+
     .galleria-hero {
         padding: 100px 0 60px;
     }
-    
+
     .galleria-hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .stats-row {
         gap: 40px;
     }
-    
+
     .stat-number {
         font-size: 2rem;
     }
-    
+
     .filter-buttons {
         flex-direction: column;
         align-items: center;
         gap: 10px;
     }
-    
+
     .filter-btn {
         width: 200px;
         padding: 10px 20px;
     }
-    
+
     .galleria-wrapper {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 40px 15px;
     }
-    
+
     .galleria-card {
         height: 300px;
     }
-    
+
     .card-overlay {
         opacity: 1;
-        background: linear-gradient(
-            to top,
-            rgba(0, 0, 0, 0.7) 0%,
-            transparent 60%
-        );
+        background: linear-gradient(to top,
+                rgba(0, 0, 0, 0.7) 0%,
+                transparent 60%);
     }
-    
+
     .card-content {
         transform: translateY(0);
     }
-    
+
     .modal-content {
         margin: 5% auto;
         max-width: 95%;
     }
-    
+
     .close-modal {
         top: 20px;
         right: 20px;
         font-size: 30px;
     }
-    
+
     .nav-btn {
         width: 50px;
         height: 50px;
         font-size: 20px;
     }
-    
+
     #prev-btn {
         margin-left: -60px;
     }
-    
+
     #next-btn {
         margin-right: -60px;
     }
@@ -628,42 +658,42 @@ html {
     .breadcrumb-container {
         padding: 0 10px;
     }
-    
+
     .galleria-hero {
         padding: 80px 0 40px;
     }
-    
+
     .stats-row {
         gap: 30px;
         flex-direction: column;
         align-items: center;
     }
-    
+
     .stat-item {
         min-width: 120px;
     }
-    
+
     .filter-controls {
         padding: 20px 0;
     }
-    
+
     .galleria-wrapper {
         padding: 30px 10px;
         gap: 15px;
     }
-    
+
     .galleria-card {
         height: 250px;
     }
-    
+
     .card-content h3 {
         font-size: 1.2rem;
     }
-    
+
     .card-content p {
         font-size: 0.9rem;
     }
-    
+
     .expand-btn {
         width: 40px;
         height: 40px;

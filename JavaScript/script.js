@@ -47,17 +47,9 @@ document.querySelectorAll('.nav-link a').forEach(function (link) {
   });
 });
 
-// Background zoom parallax effect optimization
+// Scroll handler optimization
 let ticking = false;
 let lastScrollY = 0;
-
-function updateBackgroundZoom() {
-  const scrollPercent = lastScrollY / (document.documentElement.scrollHeight - window.innerHeight);
-  // Zoom from 100% to 110% based on scroll position
-  const scale = 1 + (scrollPercent * 0.1);
-  document.documentElement.style.backgroundSize = `${scale * 100}%`;
-  ticking = false;
-}
 
 window.addEventListener('scroll', function () {
   lastScrollY = window.scrollY || document.documentElement.scrollTop;
@@ -65,20 +57,22 @@ window.addEventListener('scroll', function () {
   var footerElement = document.getElementById('footer');
   var navbar = document.querySelector('.navbar');
 
-  // Background zoom effect (optimized with requestAnimationFrame)
+  // Use requestAnimationFrame for navbar scroll effect only
   if (!ticking) {
-    window.requestAnimationFrame(updateBackgroundZoom);
+    window.requestAnimationFrame(function () {
+      // Modern navbar scroll effect (desktop only)
+      if (window.innerWidth >= 651 && navbar) {
+        if (lastScrollY > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+      ticking = false;
+    });
     ticking = true;
   }
 
-  // Modern navbar scroll effect (desktop only)
-  if (window.innerWidth >= 651 && navbar) {
-    if (lastScrollY > 100) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }
 
   if (toPageUp) {
     if (lastScrollY > (0.5 * document.documentElement.clientHeight)) {
@@ -300,24 +294,22 @@ document.addEventListener('DOMContentLoaded', function () {
   // Intersection Observer for scroll animations
   if ('IntersectionObserver' in window) {
     const observerOptions = {
-      threshold: 0.05,
-      rootMargin: '0px 0px 200px 0px'
+      threshold: 0.1,
+      rootMargin: '0px 0px 100px 0px'
     };
 
     const observer = new IntersectionObserver(function (entries) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Stop observing once visible
         }
       });
     }, observerOptions);
 
     // Observe gallery items for scroll animation
-    galleryItems.forEach((item, index) => {
-      item.style.opacity = '0';
-      item.style.transform = 'translateY(30px)';
-      item.style.transition = `opacity 0.3s ease ${index * 0.03}s, transform 0.3s ease ${index * 0.03}s`;
+    galleryItems.forEach((item) => {
+      item.classList.add('animate-on-scroll');
       observer.observe(item);
     });
   }
