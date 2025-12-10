@@ -85,27 +85,32 @@ Tämä viesti lähetettiin automaattisesti etputki.fi -verkkosivuston yhteydenot
 - Esimerkki: `template_xyz5678` tai `contact_form_123`
 - TAI klikkaa templatea auki → ID näkyy oikeassa yläkulmassa
 
-### Step 5: Päivitä koodi (kun sinulla on kaikki ID:t)
-Avaa `JavaScript/script.js` ja korvaa nämä kolme arvoa:
+### Step 5: Päivitä konfiguraatiotiedosto
+Avaa `config/emailjs-config.js` ja päivitä arvot:
 
 ```javascript
-// Rivi ~235 - Korvaa YOUR_PUBLIC_KEY
-emailjs.init('yoW4TRKQG3tzOcdQ9'); // ← Sinulla on jo oikea Public Key!
-
-// Rivi ~286 - Korvaa YOUR_SERVICE_ID
-const serviceID = 'service_yzdjwob'; // ← Liitä Service ID tähän
-
-// Rivi ~287 - Korvaa YOUR_TEMPLATE_ID
-const templateID = 'template_4vxbn27'; // ← Liitä Template ID tähän
+const EMAILJS_CONFIG = {
+    publicKey: 'yoW4TRKQG3tzOcdQ9',     // ← Public Key
+    serviceId: 'service_yzdjwob',        // ← Service ID
+    templateId: 'template_4vxbn27',      // ← Template ID
+    toEmail: 'info.etputki@gmail.com'    // ← Vastaanottajan sähköposti
+};
 ```
+
+> ⚠️ **TÄRKEÄÄ:** `config/emailjs-config.js` on lisätty `.gitignore`-tiedostoon, joten se ei tallennu versionhallintaan. Tämä suojaa tunnistetietoja.
+
+Uudessa projektissa:
+1. Kopioi `config/emailjs-config.example.js` → `config/emailjs-config.js`
+2. Täytä oikeat arvot
 
 ## 🔍 Nopea tarkistuslista ennen testaamista
 
-✅ Public Key lisätty koodiin (sinulla jo valmiina: `yoW4TRKQG3tzOcdQ9`)  
+✅ `config/emailjs-config.js` olemassa ja sisältää oikeat arvot  
+✅ Public Key lisätty config-tiedostoon  
 ⬜ Service ID löydetty EmailJS → Email Services -sivulta  
-⬜ Service ID lisätty koodiin (`script.js` rivi ~286)  
+⬜ Service ID lisätty config-tiedostoon  
 ⬜ Template ID löydetty EmailJS → Email Templates -sivulta  
-⬜ Template ID lisätty koodiin (`script.js` rivi ~287)  
+⬜ Template ID lisätty config-tiedostoon  
 ⬜ Template sisältö ja Settings tallennettu EmailJS:ssä
 
 ## 🧪 Testaus
@@ -147,8 +152,10 @@ The form sends these parameters to EmailJS:
 
 ## 🔒 Security
 
+- **Konfiguraatiotiedosto erillään:** Avaimet ovat nyt `config/emailjs-config.js` tiedostossa
+- **Versionhallinta:** Tiedosto on lisätty `.gitignore`:en, joten avaimet eivät päädy GitHubiin
+- **Mallitiedosto:** `config/emailjs-config.example.js` näyttää miten tiedosto muodostetaan
 - Your public key is safe to use in client-side code
-- No API keys exposed
 - GDPR compliant
 - Spam protection included
 

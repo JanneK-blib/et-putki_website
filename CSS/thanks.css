@@ -161,27 +161,29 @@
 }
 
 .action-buttons .contact-btn.primary {
-    background: rgb(174, 60, 89);
+    background: #019EE3;
     color: white;
-    box-shadow: 0 4px 15px rgba(174, 60, 89, 0.3);
+    box-shadow: 0 4px 15px rgba(1, 158, 227, 0.3);
 }
 
 .action-buttons .contact-btn.primary:hover {
-    background: rgb(154, 40, 69);
+    background: #017eb8;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(174, 60, 89, 0.4);
+    box-shadow: 0 6px 20px rgba(1, 158, 227, 0.4);
 }
 
 .action-buttons .contact-btn.secondary {
-    background: white;
-    color: #1a3a52;
-    border: 2px solid #1a3a52;
+    background: #019EE3;
+    color: #ffffff;
+    border: 2px solid #019EE3;
+    box-shadow: 0 4px 15px rgba(1, 158, 227, 0.3);
 }
 
 .action-buttons .contact-btn.secondary:hover {
-    background: #1a3a52;
+    background: #017eb8;
     color: white;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(1, 158, 227, 0.4);
 }
 
 /* Responsive Design */

@@ -1,0 +1,20 @@
+# EmailJS configuration with credentials
+config/emailjs-config.js
+
+# Dependencies
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

@@ -8,20 +8,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (!isSplashScreenShown) {
       localStorage.setItem('isSplashScreenShown', 'true');
-    
+
       setTimeout(() => {
         introLogo.classList.add('active');
       }, 500);
-    
+
       setTimeout(() => {
         introLogo.classList.remove('active');
         introLogo.classList.add('fade');
       }, 2000);
-    
+
       setTimeout(() => {
         intro.style.top = '-100vh';
       }, 2300);
-    
+
       setTimeout(() => {
         localStorage.removeItem('isSplashScreenShown');
       }, 1800000);
@@ -31,20 +31,20 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 })
 
-document.querySelector('.hamburger-icon').addEventListener('click', function() {
-    this.classList.toggle('active');
-    document.querySelector('.nav-menu').classList.toggle('active');
-    const middleSection = document.querySelector('.middle-section');
-    if (middleSection) {
-      middleSection.classList.toggle('hiddenText');
-    }
+document.querySelector('.hamburger-icon').addEventListener('click', function () {
+  this.classList.toggle('active');
+  document.querySelector('.nav-menu').classList.toggle('active');
+  const middleSection = document.querySelector('.middle-section');
+  if (middleSection) {
+    middleSection.classList.toggle('hiddenText');
+  }
 });
 
-document.querySelectorAll('.nav-link a').forEach(function(link) {
-    link.addEventListener('click', function() {
-      document.querySelector('.hamburger-icon').classList.remove('active');
-      document.querySelector('.nav-menu').classList.remove('active');
-    });
+document.querySelectorAll('.nav-link a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    document.querySelector('.hamburger-icon').classList.remove('active');
+    document.querySelector('.nav-menu').classList.remove('active');
+  });
 });
 
 // Background zoom parallax effect optimization
@@ -59,7 +59,7 @@ function updateBackgroundZoom() {
   ticking = false;
 }
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   lastScrollY = window.scrollY || document.documentElement.scrollTop;
   var toPageUp = document.getElementById('toPageUp');
   var footerPosition = document.getElementById('footer').getBoundingClientRect().top;
@@ -82,7 +82,7 @@ window.addEventListener('scroll', function() {
 
   if (toPageUp) {
     if (lastScrollY > (0.5 * document.documentElement.clientHeight)) {
-      toPageUp.classList.add('show'); 
+      toPageUp.classList.add('show');
     } else {
       toPageUp.classList.remove('show');
     }
@@ -98,10 +98,10 @@ window.addEventListener('scroll', function() {
 var toPageUpBtn = document.getElementById('toPageUp');
 
 if (toPageUpBtn) {
-  toPageUpBtn.addEventListener('click', function(e) {
+  toPageUpBtn.addEventListener('click', function (e) {
     e.preventDefault();
 
-    window.scrollTo ({
+    window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
@@ -109,24 +109,24 @@ if (toPageUpBtn) {
 }
 
 // Modern Gallery Functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Filter functionality
   const filterButtons = document.querySelectorAll('.filter-btn');
   const galleryItems = document.querySelectorAll('.galleria-item');
-  
+
   if (filterButtons.length > 0) {
     filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function () {
         // Remove active class from all buttons
         filterButtons.forEach(btn => btn.classList.remove('active'));
         // Add active class to clicked button
         this.classList.add('active');
-        
+
         const filter = this.getAttribute('data-filter');
-        
+
         galleryItems.forEach(item => {
           const category = item.getAttribute('data-category');
-          
+
           if (filter === 'all' || category === filter) {
             item.classList.remove('hidden');
             // Add stagger animation
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  
+
   // Lightbox functionality
   const modal = document.getElementById('lightbox-modal');
   const modalImage = document.getElementById('modal-image');
@@ -149,44 +149,44 @@ document.addEventListener('DOMContentLoaded', function() {
   const expandButtons = document.querySelectorAll('.expand-btn');
   const prevBtn = document.getElementById('prev-btn');
   const nextBtn = document.getElementById('next-btn');
-  
+
   let currentImageIndex = 0;
   let visibleImages = [];
-  
+
   function updateVisibleImages() {
     visibleImages = Array.from(document.querySelectorAll('.galleria-item:not(.hidden) img'));
   }
-  
+
   function openModal(imageSrc, index) {
     modal.style.display = 'block';
     modalImage.src = imageSrc;
     currentImageIndex = index;
     document.body.style.overflow = 'hidden';
-    
+
     // Add keyboard navigation
     document.addEventListener('keydown', handleKeydown);
   }
-  
+
   function closeModalFunc() {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
     document.removeEventListener('keydown', handleKeydown);
   }
-  
+
   function showPrevImage() {
     updateVisibleImages();
     currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : visibleImages.length - 1;
     modalImage.src = visibleImages[currentImageIndex].src;
   }
-  
+
   function showNextImage() {
     updateVisibleImages();
     currentImageIndex = currentImageIndex < visibleImages.length - 1 ? currentImageIndex + 1 : 0;
     modalImage.src = visibleImages[currentImageIndex].src;
   }
-  
+
   function handleKeydown(e) {
-    switch(e.key) {
+    switch (e.key) {
       case 'Escape':
         closeModalFunc();
         break;
@@ -198,11 +198,11 @@ document.addEventListener('DOMContentLoaded', function() {
         break;
     }
   }
-  
+
   // Event listeners
   if (expandButtons.length > 0) {
     expandButtons.forEach((btn, index) => {
-      btn.addEventListener('click', function(e) {
+      btn.addEventListener('click', function (e) {
         e.stopPropagation();
         const imageSrc = this.getAttribute('data-src');
         updateVisibleImages();
@@ -211,75 +211,75 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  
+
   // Also allow clicking on images to open modal
   const galleryImages = document.querySelectorAll('.galleria-card img');
   galleryImages.forEach((img, index) => {
-    img.addEventListener('click', function() {
+    img.addEventListener('click', function () {
       updateVisibleImages();
       const actualIndex = visibleImages.findIndex(visibleImg => visibleImg.src === this.src);
       openModal(this.src, actualIndex >= 0 ? actualIndex : index);
     });
   });
-  
+
   if (closeModal) {
-    closeModal.addEventListener('click', function(e) {
+    closeModal.addEventListener('click', function (e) {
       e.stopPropagation();
       closeModalFunc();
     });
   }
-  
+
   if (prevBtn) {
-    prevBtn.addEventListener('click', function(e) {
+    prevBtn.addEventListener('click', function (e) {
       e.stopPropagation();
       showPrevImage();
     });
   }
-  
+
   if (nextBtn) {
-    nextBtn.addEventListener('click', function(e) {
+    nextBtn.addEventListener('click', function (e) {
       e.stopPropagation();
       showNextImage();
     });
   }
-  
+
   // Prevent image click from closing modal
   if (modalImage) {
-    modalImage.addEventListener('click', function(e) {
+    modalImage.addEventListener('click', function (e) {
       e.stopPropagation();
     });
   }
-  
+
   // Close modal when clicking on the background
   if (modal) {
-    modal.addEventListener('click', function(e) {
+    modal.addEventListener('click', function (e) {
       closeModalFunc();
     });
   }
-  
+
   // Image loading management
   const galleryWrapper = document.querySelector('.galleria-wrapper');
   const allImages = document.querySelectorAll('.galleria-card img');
   let imagesLoaded = 0;
-  
+
   if (galleryWrapper && allImages.length > 0) {
     galleryWrapper.classList.add('loading');
-    
+
     allImages.forEach(img => {
       if (img.complete) {
         img.classList.add('loaded');
         imagesLoaded++;
       } else {
-        img.addEventListener('load', function() {
+        img.addEventListener('load', function () {
           this.classList.add('loaded');
           imagesLoaded++;
-          
+
           if (imagesLoaded === allImages.length) {
             galleryWrapper.classList.remove('loading');
           }
         });
-        
-        img.addEventListener('error', function() {
+
+        img.addEventListener('error', function () {
           imagesLoaded++;
           if (imagesLoaded === allImages.length) {
             galleryWrapper.classList.remove('loading');
@@ -287,21 +287,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
     });
-    
+
     // Remove loading if all images are already loaded
     if (imagesLoaded === allImages.length) {
       galleryWrapper.classList.remove('loading');
     }
   }
-  
+
   // Intersection Observer for scroll animations
   if ('IntersectionObserver' in window) {
     const observerOptions = {
       threshold: 0.05,
       rootMargin: '0px 0px 200px 0px'
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
+
+    const observer = new IntersectionObserver(function (entries) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = '1';
@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }, observerOptions);
-    
+
     // Observe gallery items for scroll animation
     galleryItems.forEach((item, index) => {
       item.style.opacity = '0';
@@ -318,11 +318,11 @@ document.addEventListener('DOMContentLoaded', function() {
       observer.observe(item);
     });
   }
-  
+
   // Smooth scroll for gallery navigation
   const galleryLinks = document.querySelectorAll('a[href*="galleria"]');
   galleryLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
       if (this.getAttribute('href').includes('#')) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
@@ -346,9 +346,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize EmailJS
 function initializeEmailJS() {
-  // Initialize EmailJS with your public key
-  // You need to replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
-  emailjs.init('yoW4TRKQG3tzOcdQ9');
+  // Initialize EmailJS with config from external file
+  // Config is loaded from config/emailjs-config.js
+  if (window.EMAILJS_CONFIG && window.EMAILJS_CONFIG.publicKey) {
+    emailjs.init(window.EMAILJS_CONFIG.publicKey);
+  } else {
+    console.error('EmailJS config not found. Please ensure config/emailjs-config.js is loaded.');
+  }
 }
 
 // Modern Form Functions
@@ -362,7 +366,7 @@ function initializeModernForm() {
 
   // Character counter
   if (charCountInput && charCount) {
-    charCountInput.addEventListener('input', function() {
+    charCountInput.addEventListener('input', function () {
       charCount.textContent = this.value.length;
       updateProgress();
     });
@@ -370,23 +374,23 @@ function initializeModernForm() {
 
   // Input validation on blur
   inputs.forEach(input => {
-    input.addEventListener('blur', function() {
+    input.addEventListener('blur', function () {
       validateField(this);
       updateProgress();
     });
 
-    input.addEventListener('input', function() {
+    input.addEventListener('input', function () {
       validateField(this);
       updateProgress();
     });
 
-    input.addEventListener('focus', function() {
+    input.addEventListener('focus', function () {
       clearError(this.id);
     });
   });
 
   // Form submission with EmailJS
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
 
     // Validate all fields
@@ -396,13 +400,6 @@ function initializeModernForm() {
         isValid = false;
       }
     });
-
-    // Validate GDPR checkbox
-    const gdprCheckbox = document.getElementById('gdpr');
-    if (!gdprCheckbox.checked) {
-      showError('gdpr', 'Sinun tulee hyväksyä tietojesi käsittely');
-      isValid = false;
-    }
 
     if (!isValid) {
       return;
@@ -415,23 +412,21 @@ function initializeModernForm() {
     // Send email using EmailJS
     sendEmail(form, submitBtn);
   });
-
-  // Validate on GDPR checkbox change
-  const gdprCheckbox = document.getElementById('gdpr');
-  if (gdprCheckbox) {
-    gdprCheckbox.addEventListener('change', function() {
-      if (this.checked) {
-        clearError('gdpr');
-      }
-    });
-  }
 }
 
 // Send email using EmailJS
 function sendEmail(form, submitBtn) {
-  // Replace these with your EmailJS service ID and template ID
-  const serviceID = 'service_yzdjwob';
-  const templateID = 'template_4vxbn27';
+  // Get config from external file
+  if (!window.EMAILJS_CONFIG) {
+    console.error('EmailJS config not loaded');
+    alert('Virhe: Sähköpostipalvelua ei ole konfiguroitu oikein.');
+    submitBtn.classList.remove('loading');
+    submitBtn.disabled = false;
+    return;
+  }
+
+  const serviceID = window.EMAILJS_CONFIG.serviceId;
+  const templateID = window.EMAILJS_CONFIG.templateId;
 
   // Prepare template parameters
   const templateParams = {
@@ -441,22 +436,22 @@ function sendEmail(form, submitBtn) {
     address: form.address.value || 'Ei annettu',
     service: form.service.value || 'Ei valittu',
     message: form.message.value,
-    to_email: 'info.etputki@gmail.com'
+    to_email: window.EMAILJS_CONFIG.toEmail || 'info.etputki@gmail.com'
   };
 
   emailjs.send(serviceID, templateID, templateParams)
-    .then(function(response) {
+    .then(function (response) {
       console.log('SUCCESS!', response.status, response.text);
-      
+
       // Redirect immediately to thank you page
       window.location.href = './thank_you.html';
 
-    }, function(error) {
+    }, function (error) {
       console.log('FAILED...', error);
-      
+
       // Show error message
       alert('Viestin lähetys epäonnistui. Yritä uudelleen tai soita meille suoraan: 0400 819101');
-      
+
       // Reset button state
       submitBtn.classList.remove('loading');
       submitBtn.disabled = false;
@@ -599,7 +594,7 @@ function clearStatus(fieldId) {
 function initScrollAnimations() {
   if (window.innerWidth <= 650) {
     const boxRows = document.querySelectorAll('.box-row');
-    
+
     const observerOptions = {
       threshold: 0.15,
       rootMargin: '0px 0px -50px 0px'
@@ -637,7 +632,6 @@ window.addEventListener('resize', () => {
 function updateProgress() {
   const form = document.getElementById('contactForm');
   const requiredFields = form.querySelectorAll('[required]');
-  const gdprCheckbox = document.getElementById('gdpr');
   const progressBar = document.getElementById('progressBar');
 
   let filledFields = 0;
@@ -650,12 +644,7 @@ function updateProgress() {
     }
   });
 
-  // Add GDPR checkbox
-  if (gdprCheckbox && gdprCheckbox.checked) {
-    filledFields++;
-  }
-
-  const totalFields = requiredFields.length + 1; // +1 for GDPR
+  const totalFields = requiredFields.length;
   const progress = (filledFields / totalFields) * 100;
 
   if (progressBar) {
